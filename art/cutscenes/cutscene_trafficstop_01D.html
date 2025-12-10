@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>OITC – Traffic Stop · 01D</title>
+  <title>OITC – Traffic Stop · Branch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <style>
     :root {
@@ -53,10 +53,6 @@
     }
 
     @media (orientation: portrait) {
-      body {
-        align-items: stretch;
-        justify-content: stretch;
-      }
       .app-window {
         width: 100vw;
         height: 100vh;
@@ -77,25 +73,26 @@
       }
     }
 
-    /* Base panel: CS0002, always visible underneath */
+    /* Panel 2 base image */
     #img2 {
       position: absolute;
       inset: 0;
     }
 
-    /* "Page turn" target: blackoutandy slides in from the right */
+    /* Andy coming in from the right */
     #andy {
       position: absolute;
       inset: 0;
+      object-fit: cover;
 
-      /* start fully off-screen to the right */
+      /* Start offscreen */
       transform: translateX(100%);
 
-      /* 1s hold on CS0002, then 2.5s slide */
-      animation: slideAndyIn 2.5s ease-in-out forwards 1s;
+      /* Begin after 1s, animate 2.5s */
+      animation: slideAndy 2.5s ease-in-out forwards 1s;
     }
 
-    @keyframes slideAndyIn {
+    @keyframes slideAndy {
       from { transform: translateX(100%); }
       to   { transform: translateX(0); }
     }
@@ -103,11 +100,11 @@
 </head>
 <body>
   <div class="app-window">
-    <!-- Panel 2 : CS0002 (hold for 1s before turn) -->
+    <!-- Panel 2 : CS0002 -->
     <img id="img2" src="./I-CS0002.jpg" alt="Traffic stop panel CS0002" />
 
-    <!-- Debug page-turn target: blackoutandy -->
-    <img id="andy" src="./blackoutandy.jpg" alt="Debug blackout Andy" />
+    <!-- Debug page-turn: Andy instead of blackout -->
+    <img id="andy" src="./blackoutandy.jpg" alt="Debug Andy Overlay" />
   </div>
 </body>
 </html>
