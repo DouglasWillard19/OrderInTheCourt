@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>OITC – Traffic Stop · I-CS0001</title>
+  <title>OITC – Traffic Stop · 01</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <style>
     :root {
@@ -33,7 +33,7 @@
       display: flex;
       align-items: stretch;
       justify-content: center;
-      min-height: 100vh; /* ensures no top/bottom gap */
+      min-height: 100vh;
     }
 
     .app-window {
@@ -47,7 +47,7 @@
       border: 1px solid var(--frame-border);
       overflow: hidden;
       margin-left: auto;
-      margin-right: auto; /* equal L/R margin */
+      margin-right: auto;
       position: relative;
     }
 
@@ -70,7 +70,7 @@
         max-height: 100vh;
         border-radius: 0;
         border: none;
-        margin: 0; /* no margins at all */
+        margin: 0;
       }
     }
 
@@ -83,6 +83,7 @@
       }
     }
 
+    /* Panel 1: fade in */
     .fade-in {
       opacity: 0;
       animation: fadeIn 5s ease forwards;
@@ -93,42 +94,22 @@
       to   { opacity: 1; }
     }
 
-    .blackout {
-  position: absolute;
-  inset: 0;
-  background: #000;
-  opacity: 0;
-  transition: opacity 0.2s linear; /* tiny transition; feels instant-ish */
-  pointer-events: none; /* ⬅ add this */
-}
-
-
+    /* Panel 2: page-turn in from right at t=10s */
     #img2 {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-
-      /* start fully hidden off the right side via clip-path */
       opacity: 1;
       clip-path: inset(0 0 0 100%);
-
-      /* start page-turn at t = 10s, lasts 2.5s */
       animation: pageTurnIn 2.5s ease-in-out forwards 10s;
     }
 
-    /* reveals img2 from right → left */
     @keyframes pageTurnIn {
-      from {
-        clip-path: inset(0 0 0 100%);  /* everything clipped, invisible */
-      }
-      to {
-        clip-path: inset(0 0 0 0);     /* fully visible, covering img1 */
-      }
+      from { clip-path: inset(0 0 0 100%); }
+      to   { clip-path: inset(0 0 0 0); }
     }
-
-    
 
     /* -------- DIALOG WHEEL -------- */
 
@@ -209,7 +190,7 @@
       font-size: 0.8rem;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       text-align: left;
-      cursor: inherit; /* actual cursor set on body when active */
+      cursor: pointer;
       outline: none;
       transition: border-color 0.15s ease, background 0.15s ease, transform 0.08s ease;
     }
@@ -243,38 +224,17 @@
       font-size: 0.6rem;
       color: var(--wheel-accent);
     }
-    
-    #img3 {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  opacity: 1;
-  clip-path: inset(0 0 0 100%); /* start fully hidden */
-}
-
-/* Page-turn: I-CS0003 revealed from right → left */
-@keyframes pageTurn3 {
-  from { clip-path: inset(0 0 0 100%); }
-  to   { clip-path: inset(0 0 0 0); }
-}
-     </style>
+  </style>
 </head>
 <body>
   <div class="app-window">
-    <!-- Panel 1 CS0001-->
+    <!-- Panel 1 : CS0001 -->
     <img src="./I-CS0001.jpg" class="fade-in" alt="Traffic stop concept art panel I-CS0001" />
 
-    <!-- Panel 2 CS0002-->
+    <!-- Panel 2 : CS0002 -->
     <img id="img2" src="./I-CS0002.jpg" alt="Traffic stop concept art panel I-CS0002" />
 
-    <!-- Panel 2.4.1 CS0003 -->
-    <img id="img3" src="./I-CS0003.jpg" alt="Traffic stop concept art panel I-CS0003" />
-
-
-    <!-- Dialogue wheel overlay -->
+    <!-- Wheel 1 : choices A–D -->
     <div class="dialog-wheel" id="dialogWheel">
       <div class="dialog-wheel-inner">
         <div class="dialog-wheel-header">
@@ -307,13 +267,9 @@
         </div>
       </div>
     </div>
-
-    <!-- Final black frame -->
-    <div class="blackout"></div>
   </div>
 
   <script>
-    // Show the dialog wheel after the page-turn finishes (t ≈ 12.5s)
     const wheel = document.getElementById('dialogWheel');
     const choiceButtons = wheel.querySelectorAll('.choice-btn');
 
@@ -325,36 +281,28 @@
       wheel.classList.remove('visible');
     }
 
-    // Match this to your animation timing:
-    // 10s start pageTurnIn + 2.5s duration + 5s hold = 17.5s
-    
+    // 10s (start pageTurnIn) + 2.5s (duration) + 5s (hold) = 17.5s
     setTimeout(showWheel, 17500);
 
-
     choiceButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Clear previous choices visually
-    choiceButtons.forEach(b => b.classList.remove('chosen'));
-    // Mark this one as chosen (triggers gavel bang anim)
-    btn.classList.add('chosen');
+      btn.addEventListener('click', () => {
+        const choiceId = btn.getAttribute('data-choice');
+        console.log('Choice selected in 01:', choiceId);
 
-    const choiceId = btn.getAttribute('data-choice');
-    console.log('Choice selected:', choiceId);
+        hideWheel();
 
-    // Hide wheel & gavel cursor
-    hideWheel();
-
-    // Cut to black for all choices (for now)
-    const blackout = document.querySelector('.blackout');
-    if (blackout) {
-      blackout.style.opacity = '1';
-    }
-
-    // Later we'll branch instead of blacking out:
-    // window.location.href = "cutscene_choice_" + choiceId + ".html";
-  });
-});
-
+        // Branch to the appropriate next cutscene
+        if (choiceId === 'A') {
+          window.location.href = "cutscene_trafficstop_01A.html";
+        } else if (choiceId === 'B') {
+          window.location.href = "cutscene_trafficstop_01B.html";
+        } else if (choiceId === 'C') {
+          window.location.href = "cutscene_trafficstop_01C.html";
+        } else if (choiceId === 'D') {
+          window.location.href = "cutscene_trafficstop_01D.html";
+        }
+      });
+    });
   </script>
 </body>
 </html>
