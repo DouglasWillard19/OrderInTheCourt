@@ -2,20 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>OITC – Traffic Stop · 01D</title>
+  <title>OITC – Traffic Stop · 01D (Zero Anim Test)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <style>
-    :root {
-      --bg: #000000;
-      --frame-border: #202020;
-      --frame-radius: 18px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html, body {
       height: 100%;
       width: 100%;
     }
@@ -29,62 +25,35 @@
     }
 
     .app-window {
-      height: 100vh;
-      max-height: 100vh;
-      background: #000;
-      border-radius: var(--frame-radius);
-      border: 1px solid var(--frame-border);
-      overflow: hidden;
       position: relative;
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      overflow: hidden;
+      background: #000;
     }
 
-    /* Base panel (CS0002) */
-    #img2 {
-      position: absolute;
-      inset: 0;
+    .app-window img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    /* WRAPPER that is wider than viewport */
-    .turn-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 150%;           /* <-- seam gets hidden offscreen */
-      display: flex;
-      justify-content: flex-start;
-      transform: translateX(0);
-      animation: turnIn 2.5s ease-in-out forwards 1s;
+    @media (orientation: landscape) {
+      .app-window {
+        height: 100vh;
+        max-height: 100vh;
+        width: auto;
+        max-width: 100vw;
+      }
     }
-
-    /* The slide-in image anchored on LEFT side of wrapper */
-    .turn-img {
-      width: 100%;          /* takes only the left portion */
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @keyframes turnIn {
-      from { transform: translateX(50%); }   /* starts WELL outside screen */
-      to   { transform: translateX(0); }     /* ends with no seam */
-    }
-
   </style>
 </head>
 <body>
   <div class="app-window">
-
-    <!-- Panel 2: CS0002 (static, full-screen) -->
-    <img id="img2" src="./I-CS0002.jpg" alt="CS0002 panel">
-
-    <!-- Page-turn wrapper containing blackoutandy -->
-    <div class="turn-wrapper">
-      <img class="turn-img" src="./blackoutandy.jpg" alt="Andy Debug Image" />
-    </div>
-
+    <img src="./blackoutandy.jpg" alt="Zero animation Andy test" />
   </div>
 </body>
 </html>
