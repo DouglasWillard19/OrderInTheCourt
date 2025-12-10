@@ -2,71 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>OITC – Traffic Stop · Branch</title>
+  <title>OITC – Traffic Stop · 01D (Zero Anim Test)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <style>
-    :root {
-      --bg: #000000;
-      --frame-border: #202020;
-      --frame-radius: 18px;
-    }
-
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
       width: 100%;
     }
 
     body {
-      background: var(--bg);
+      background: #000;
       display: flex;
-      align-items: stretch;
       justify-content: center;
+      align-items: stretch;
       min-height: 100vh;
     }
 
     .app-window {
-      height: 100vh;
-      max-height: 100vh;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      background: #000;
-      border-radius: var(--frame-radius);
-      border: 1px solid var(--frame-border);
-      overflow: hidden;
-      margin-left: auto;
-      margin-right: auto;
       position: relative;
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      overflow: hidden;
+      background: #000;
     }
 
-    .app-window img,
-    .page-next {
+    .app-window img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    @media (orientation: portrait) {
-      body {
-        align-items: stretch;
-        justify-content: stretch;
-      }
-      .app-window {
-        width: 100vw;
-        height: 100vh;
-        max-width: 100vw;
-        max-height: 100vh;
-        border-radius: 0;
-        border: none;
-        margin: 0;
-      }
     }
 
     @media (orientation: landscape) {
@@ -77,39 +49,11 @@
         max-width: 100vw;
       }
     }
-
-    /* Panel 2: CS0002 – static base */
-    #img2 {
-      position: absolute;
-      inset: 0;
-    }
-
-    /* Black "next page" slides in from right */
-    .page-next {
-      position: absolute;
-      inset: 0;
-      background: #000;
-
-      /* start completely off-screen to the right */
-      transform: translateX(100%);
-
-      /* wait 1s, then slide in over 2.5s */
-      animation: slideIn 2.5s ease-in-out forwards 1s;
-    }
-
-    @keyframes slideIn {
-      from { transform: translateX(100%); }
-      to   { transform: translateX(0); }
-    }
   </style>
 </head>
 <body>
   <div class="app-window">
-    <!-- Panel 2 : CS0002 (held for ~1s before slide) -->
-    <img id="img2" src="./I-CS0002.jpg" alt="Traffic stop panel CS0002" />
-
-    <!-- Page-turn target: currently just blackout -->
-    <div class="page-next"></div>
+    <img src="./blackoutandy.jpg" alt="Zero animation Andy test" />
   </div>
 </body>
 </html>
