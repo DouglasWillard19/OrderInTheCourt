@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Order in the Court – Traffic Stop Cutscene (CS0001–CS0002)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #05070a;
+      --card: #10141b;
+      --accent: #f5c24b;
+      --accent-soft: rgba(245, 194, 75, 0.1);
+      --text-main: #f5f5f5;
+      --text-muted: #b0bac9;
+      --border-subtle: #262c3a;
+      --danger: #ff4d4d;
+      --mono: "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--sans);
+      background: radial-gradient(circle at top, #151a24 0, #05070a 55%, #000 100%);
+      color: var(--text-main);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .frame {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      background: linear-gradient(145deg, #090c12, #141924);
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      padding: 20px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 10px;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .title span {
+      color: var(--accent);
+    }
+
+    .sequence-label {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 999px;
+      padding: 3px 12px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .sequence-label strong {
+      color: var(--accent);
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .panels {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .panel {
+      background: radial-gradient(circle at top left, #1a2233 0, #0b0f18 55%, #05070a 100%);
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      position: relative;
+    }
+
+    .panel-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(5, 7, 10, 0.9);
+      border: 1px solid rgba(245, 194, 75, 0.38);
+      color: var(--accent);
+      backdrop-filter: blur(6px);
+      z-index: 2;
+    }
+
+    .panel-art {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .panel-art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.01);
+    }
+
+    .panel-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(5, 7, 10, 0.92) 0%,
+        rgba(5, 7, 10, 0.35) 55%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+
+    .panel-meta {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      z-index: 2;
+      padding-right: 12px;
+    }
+
+    .panel-caption {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 3px;
+      opacity: 0.95;
+    }
+
+    .panel-logline {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      text-shadow: 0 0 14px rgba(0, 0, 0, 0.9);
+    }
+
+    .panel-body {
+      padding: 10px 12px 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .panel-body {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .meta-block {
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .meta-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .meta-block p {
+      margin: 1px 0 0 0;
+    }
+
+    .dialogue {
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .dialogue-line {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .dialogue-line::before {
+      content: "➤";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 0.72rem;
+      color: var(--accent);
+      opacity: 0.75;
+    }
+
+    .speaker {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .voiceover {
+      color: var(--danger);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-family: var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .btn span {
+      font-size: 0.85rem;
+    }
+
+    .btn-secondary {
+      border-color: var(--border-subtle);
+      color: var(--text-muted);
+      background: transparent;
+    }
+
+    .case-tag {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px dashed var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <header class="header-row">
+      <div class="title">
+        ORDER IN THE COURT <span>●</span> OPENING CUTSCENE
+      </div>
+      <div class="sequence-label">
+        Sequence: <strong>CS0001</strong> → page turn → <strong>CS0002</strong> → cut
+      </div>
+    </header>
+
+    <section class="panels" aria-label="Traffic stop cutscene boards">
+      <!-- PANEL 1 – CS0001 -->
+      <article class="panel" aria-label="CS0001 – Initial stop">
+        <div class="panel-tag">CS0001 · Exterior – Night</div>
+        <div class="panel-art">
+          <!-- EXPECTED FILE: /art/I-CS0001.jpg -->
+          <img src="art/I-CS0001.jpg"
+               alt="Patrol car with lightbar flaring behind a stopped sedan on a dark city street at night." />
+          <div class="panel-meta">
+            <div class="panel-caption">A routine traffic stop.</div>
+            <div class="panel-logline">
+              Cruiser lights strobe across worn brick and busted sidewalks. One more stop on a long shift.
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="meta-block">
+            <div class="meta-label">Camera &amp; sound</div>
+            <p>
+              Slow push in from behind the cruiser, lens flare off the lightbar. Street noise low in the mix:
+              distant siren, bass from a passing car, wind against power lines.
+            </p>
+            <p>
+              Radio chatter bleeds in &mdash; half-heard codes, a dispatcher reading off plate info.
+            </p>
+          </div>
+          <div class="meta-block dialogue">
+            <div class="meta-label">Dialogue &amp; VO</div>
+
+            <div class="dialogue-line">
+              <span class="speaker">DISPATCH (RADIO)</span><br />
+              <span>“Unit 214, plate returns local. No wants, no warrants.”</span>
+            </div>
+
+            <div class="dialogue-line">
+              <span class="speaker">OFFICER (MUTTER, OFF-CAMERA)</span><br />
+              <span>“Copy. Let’s make this quick.”</span>
+            </div>
+
+            <div class="dialogue-line">
+              <span class="speaker voiceover">PLAYER VO (FUTURE ATTORNEY)</span><br />
+              <span>
+                “They call it a routine stop. The file won’t. The file will call it Exhibit A.”
+              </span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PANEL 2 – CS0002 -->
+      <article class="panel" aria-label="CS0002 – At the driver window">
+        <div class="panel-tag">CS0002 · POV – Body cam</div>
+        <div class="panel-art">
+          <!-- EXPECTED FILE: /art/I-CS0002.jpg -->
+          <img src="art/I-CS0002.jpg"
+               alt="Officer at the driver’s window, flashlight cutting through the dark interior of the stopped car." />
+          <div class="panel-meta">
+            <div class="panel-caption">Body cam locked in.</div>
+            <div class="panel-logline">
+              The lens catches everything the officer sees. And everything they choose not to.
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="meta-block">
+            <div class="meta-label">Camera &amp; UI</div>
+            <p>
+              Cut to body-cam POV. Slight fisheye distortion, subtle HUD elements:
+              timestamp, unit ID, &ldquo;REC&rdquo; indicator in the corner.
+            </p>
+            <p>
+              Flashlight beam sweeps across the driver’s hands on the wheel, then the dashboard,
+              then a crumpled citation from a prior stop.
+            </p>
+          </div>
+          <div class="meta-block dialogue">
+            <div class="meta-label">Dialogue &amp; VO</div>
+
+            <div class="dialogue-line">
+              <span class="speaker">OFFICER</span><br />
+              <span>“Evening. License, registration, and proof of insurance.”</span>
+            </div>
+
+            <div class="dialogue-line">
+              <span class="speaker">DRIVER</span><br />
+              <span>“Yeah, just… give me a second. It’s in the glove box.”</span>
+            </div>
+
+            <div class="dialogue-line">
+              <span class="speaker voiceover">PLAYER VO (FUTURE ATTORNEY)</span><br />
+              <span>
+                “Right here, in the dark, the case begins. Not at arraignment. Not at trial.
+                It starts with how this stop is handled… or mishandled.”
+              </span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer-row">
+      <div class="note">
+        These boards map directly to in-game assets:
+        <span class="case-tag">I-CS0001.jpg</span>
+        <span class="case-tag">I-CS0002.jpg</span>
+      </div>
+      <div class="cta-row">
+        <a href="index.html" class="btn-secondary btn">
+          <span>⟵ Back to Pitch</span>
+        </a>
+        <a href="#" class="btn">
+          <span>Continue: Case File Intake (CS0003)</span>
+        </a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
