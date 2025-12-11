@@ -56,6 +56,41 @@
     .panel.visible {
       opacity: 1;
     }
+
+    /* z-ordering so CS0002 is on top when it breaks */
+    #panel2 { z-index: 2; }
+    #panel3 { z-index: 1; }
+    #andy   { z-index: 3; }
+
+    /* Break + fall animation for CS0002 */
+    .break-fall {
+      animation: breakFall 0.6s ease-in forwards;
+    }
+
+    @keyframes breakFall {
+      0% {
+        transform: scale(1) translateY(0) rotate(0deg);
+        opacity: 1;
+        filter: none;
+      }
+      10% {
+        transform: scale(1.02) translateY(-2vh) rotate(-1deg);
+      }
+      20% {
+        transform: scale(1.03) translateY(1vh) rotate(1.5deg);
+      }
+      30% {
+        transform: scale(1.05) translateY(-1vh) rotate(-2deg);
+      }
+      40% {
+        transform: scale(1.05) translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: scale(1.1) translateY(40vh) rotate(8deg);
+        opacity: 0;
+        filter: blur(2px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -77,17 +112,25 @@
   </div>
 
   <script>
-    const p2 = document.getElementById('panel2');
-    const p3 = document.getElementById('panel3');
+    const p2   = document.getElementById('panel2');
+    const p3   = document.getElementById('panel3');
     const andy = document.getElementById('andy');
 
-    // After 1s, switch CS0002 → CS0003
+    // After 1s: reveal CS0003 behind, "break + fall" CS0002
     setTimeout(() => {
-      p2.classList.remove('visible');
+      // CS0003 comes in
       p3.classList.add('visible');
+
+      // CS0002 plays break/fall animation
+      p2.classList.add('break-fall');
+
+      // Once animation is done, clean up its visible flag
+      setTimeout(() => {
+        p2.classList.remove('visible');
+      }, 600); // match breakFall duration
     }, 1000);
 
-    // After 1s + 5s = 6s, switch CS0003 → blackout Andy
+    // After 6s total (1s + 5s): CS0003 → blackout Andy
     setTimeout(() => {
       p3.classList.remove('visible');
       andy.classList.add('visible');
