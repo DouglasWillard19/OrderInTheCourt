@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Order in the Court - Concept Bible v9.2</title>
+  <title>Order in the Court - Concept Bible v9.3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -33,6 +33,8 @@
 A-1: Overview of Order in the Court
 A-1.1a - [Order in the Court (OitC) is an MMO legal simulation where players progress through four phases: Defendant, Paralegal, Attorney, and Judge.]
 A-1.1b - [The game blends real legal procedure with structured AI assistance via Sidebar, enabling players to learn, practice, and master legal reasoning through authentic gameplay loops.]
+A-1.1c - [OitC is a realism-first, AI-assisted legal MMO where players operate inside an authentic, systemic legal ecosystem rather than a scripted story.]
+A-1.1d - [Players experience the fantasy of operating as real legal professionals—with agency, accountability, and long-term mastery over their careers and influence.]
 
 A-2: Core Philosophy
 A-2.1a - [OitC is built on three pillars of intellectual property and experience design: Sidebar, the IRL Law Library, and The Brand.]
@@ -55,15 +57,22 @@ B-2.1b - [CS (Connection Score) measures interpersonal professional history, col
 AND
 B-2.1c - [IS (Insight Score) measures accumulated legal understanding and effective Sidebar interaction.]
 B-2.2a - [These systems form a self-correcting ecosystem, rewarding professional conduct and penalizing misconduct without developer micromanagement.]
+B-2.2b - [Mental model: RS governs capability, CS governs relationships, IS governs understanding.]
+B-2.3a - [Server resets, splits, or merges are handled through explicit transfer rules; by default, RS/CS/IS are non-transferable across servers except through defined transfer events, which must be documented as SYSTEMS or EXPANSION HOOKS.]
 
 B-3: Player Agency and Consequence Principle
 B-3.1a - [All meaningful gameplay actions create persistent records influencing RS, CS, and IS.]
 B-3.1b - [No system may erase or override player choices without procedural justification consistent with real-world legal logic.]
+B-3.1c - [FIXED RULE – No system in this Concept Bible may require ongoing manual human micromanagement to function at scale; oversight and moderation loops must be automatable and sustainable.]
 
 B-4: Classification of Rules
 B-4.1a - [FIXED RULE – Defines core identity. Cannot be altered without breaking the game’s foundation.]
 B-4.1b - [SYSTEM – Tunable mechanic subject to iteration and balancing.]
 B-4.1c - [EXPANSION HOOK – Planned mechanic not yet implemented, included for future compatibility.]
+
+B-5: Downstream Use of This Concept Bible
+B-5.1a - [This Concept Bible is the canonical source for all design, technical, narrative, and pitch materials. Any derivative document must either comply with it or explicitly mark deviations for review.]
+B-5.1b - [Once adopted, CB-v9.3 supersedes CB-v9.2 for all future development while preserving v9.2 as an archival reference.]
 
 EXHIBIT C: THE THREE PILLARS
 
@@ -73,6 +82,8 @@ C-1.1b - [Sidebar empowers players while preserving agency. It explains, suggest
 C-1.1c - [Sidebar creates the interactive feel of OitC, shaping pacing, tone, understanding, and player workflow.]
 C-1.1e - [Sidebar is the sole gameplay interface for OitC; all filings, calendars, evidence views, messaging, and instructional content are experienced through Sidebar.]
 C-1.1d - [Sidebar uses the Judicial Rules Engine (JRE) as a backend adjudication tool, applying probability-modified and rule-bound outcomes. The JRE supports Sidebar but is not a standalone system or identity element.]
+C-1.2a - [Sidebar may never impersonate a player, independently accept or reject in-game obligations, or make strategic choices without explicit player input.]
+C-1.2b - [Sidebar must decline requests that would break role boundaries, confidentiality rules, or Oversight protocols, and must instead instruct the player on proper procedure.]
 
 C-2: Law Pillar
 C-2.1a - [The Law Pillar consists of two layers: the IRL Law Library (IRLLL) and the In-Game Law Library (IGLL). IRLLL is a proprietary Andyland corpus accessed only by MARL0; IGLL is the studio-owned in-game corpus used by all player Sidebars.]
@@ -81,11 +92,17 @@ C-2.1c - [Both IRLLL and IGLL are developed progressively through gameplay; only
 C-2.1d - [When gameplay exposes a legal issue for which IGLL contains no controlling doctrine, the issue is forwarded to MARL0 so that the relevant IRLLL material can be constructed or updated and an IGLL change can be proposed.]
 C-2.1e - [Only human SCOTUS justices may approve changes to IGLL based on MARL0’s proposals. In addition, binding in-game precedent created through judicial decisions may refine or expand IGLL.]
 C-2.1f - [This structure preserves human control over the in-game body of law while allowing MARL0 to reduce human grind-work by preparing advisory material for SCOTUS review.]
+C-2.1g - [Within IGLL, “binding precedent” refers to a decision designated as controlling for a defined jurisdictional scope and level of court; decisions may be distinguished when materially different facts or controlling higher-court authority apply.]
+C-2.1h - [By default, simulated-judge decisions carry the same doctrinal weight as human-judge decisions for their jurisdiction and level, unless flagged, overturned, or superseded through appellate review or SCOTUS action.]
+C-2.1i - [SCOTUS may issue non-precedential or advisory opinions that guide Sidebar behavior and lower-court reasoning without formally entering IGLL doctrine.]
+C-2.1j - [IGLL supports judge-initiated Precedent Challenges via the Judicial Precedent Challenge (JPC) system, allowing existing precedents to be re-litigated under defined rules.]
 
 C-3: The Brand (Identity & Marketing Pillar)
 C-3.1a - [The Brand represents the proprietary Willard/MARL0 creative identity governing tone, voice, UI feel, aesthetic rules, realism boundaries, and all player-facing material.]
 C-3.1b - [The Brand ensures OitC maintains a distinct immersive character—grounded, modern, and non-cartoonish—and avoids drifting into generic simulation or roleplay environments.]
 C-3.1c - [The Brand is a pillar because it defines the experiential identity of OitC, influencing pitch materials, trailers, MARL0 appearances, and the overall atmosphere of the game.]
+C-3.2a - [Forbidden aesthetics include cartoon UIs, neon arcade palettes, medieval parchment motifs, anime courtroom parody, and over-the-top meme styling that undermines realism.]
+C-3.2b - [Required tone includes clean, modern typography; professional, subdued palettes; grounded visual framing; realistic environments; and continuity of tone across all roles and servers.]
 
 EXHIBIT D: CORE GAMEPLAY SYSTEMS
 
@@ -93,6 +110,8 @@ D-0: High-Level Caseflow Loop
 D-0.1a - [The standard caseflow loop is: Filing → Response → Motions → Hearings → Resolution → Appeal.]
 D-0.1b - [Each stage provides opportunities to gain RS, build CS, and earn IS through research, preparation, advocacy, and collaboration.]
 D-0.1c - [All matters begin as unrendered Case Profiles—skeletal case definitions created by the system. As attorney assignment and server demand require, these Case Profiles are expanded into fully Rendered Cases made available for play.]
+D-0.1d - [Textual diagram: Case Profile → Rendered Case → Filing → Response → Motions → Hearings → Resolution → Appeal.]
+D-0.1e - [The transition from Case Profile to Rendered Case is triggered by a combination of attorney assignment, player demand, and server caseload thresholds.]
 
 D-1: Phase 1 – Defendant
 
@@ -111,6 +130,11 @@ D-1.3: Appeals Introduction
 D-1.3a - [Phase 1 appeals introduce appellate mechanics lightly, preparing players for deeper systems later.]
 D-1.3b - [More advanced appellate gameplay emerges in the Attorney and Judge phases.]
 
+D-1.4: Pretrial Status, Progression, and Exceptions
+D-1.4a - [Bail, bond, or pretrial release may be represented in simplified form as access limits, time pressure, or stakes, but remains primarily a narrative and structural device rather than a grind mechanic.]
+D-1.4b - [Players may be disqualified from progressing out of the Defendant Phase for repeated bad-faith conduct, refusal to engage with Sidebar, or failure to complete required tutorial matters.]
+D-1.4c - [Phase 1 tutorial-style defendant cases are the only explicit exception to the “No Manufactured Work” rule; all ongoing server-level work must originate from real player actions and disputes.]
+
 D-2: Phase 2 – Paralegal
 
 D-2.0: Phase Purpose
@@ -128,16 +152,19 @@ D-2.3: Social MMO Integration
 D-2.3a - [Paralegal performance generates early RS and CS.]
 D-2.3b - [Players establish reputations and form relationships that impact long-term careers.]
 
-D-2.5: Court-Appointed Advocates (CAA)
-D-2.5a - [Within the PPP track, eligible Paralegals may certify as Court-Appointed Advocates (CAAs), allowing them to handle limited Municipal Court matters under supervision.]
-D-2.5b - [The CAA role provides Paralegals with early adversarial experience without replacing full attorney responsibilities or diluting professional progression.]
-
 D-2.4: Automation Rules
 D-2.4a - [Paralegal Sidebars are never used for automation. Their work must come from real players to preserve role identity and accountability.]
 AND
 D-2.4b - [Attorney Sidebar may auto-generate minimal compliance filings to avoid procedural defaults only.]
 D-2.4c - [If a Paralegal has prepared and submitted a draft filing to the attorney and the attorney fails to file by the deadline, Sidebar may submit the Paralegal’s draft to prevent a procedural default.]
 D-2.4d - [If neither Paralegal nor attorney has prepared a draft, Sidebar may generate the minimal required filing to avoid procedural failure, without conferring substantive strategic advantage.]
+D-2.4e - [Minimal compliance filings are strictly limited in length and complexity and may not contain substantive strategy, narrative, or argumentation.]
+
+D-2.5: Court-Appointed Advocates (CAA)
+D-2.5a - [Within the PPP track, eligible Paralegals may certify as Court-Appointed Advocates (CAAs), allowing them to handle limited Municipal Court matters under supervision.]
+D-2.5b - [Paralegals may not sign filings or act as counsel of record; all filings must flow through attorneys or structured CAA mechanisms defined by the studio.]
+D-2.5c - [CAA work is supervised by designated attorneys or PSP offices with limits on concurrent active cases and matter types to preserve quality and progression balance.]
+D-2.5d - [Paralegal performance contributes quantitatively to RS through accurate, timely work and to CS through repeated collaboration with specific attorneys or offices.]
 
 D-3: Phase 3 – Attorney
 
@@ -156,6 +183,11 @@ D-3.3: Case Tools
 D-3.3a - [Attorneys unlock calendars, drafting tools, dashboards, and broader authority over case strategy.]
 D-3.3b - [Attorneys form the core of adversarial gameplay, connecting defendant experience to judicial review.]
 
+D-3.4: Automation Limits and Conflicts
+D-3.4a - [Substantive strategy, arguments, and key narrative portions of filings may not be auto-generated; automation is confined to minimal procedural compliance.]
+D-3.4b - [Conflict-of-interest triggers for attorney reassignment include prior representation of opposed parties, alt-account overlap with judges, or RS/CS patterns indicating potential abuse.]
+D-3.4c - [Attorney specialization (e.g., criminal vs. future civil, municipal vs. appellate) is expected to emerge over time and may be supported as an EXPANSION HOOK.]
+
 D-4: Phase 4 – Judge
 
 D-4.0: Phase Purpose
@@ -173,49 +205,86 @@ D-4.3: High Court Server
 D-4.3a - [The High Court server handles appellate and precedent-setting matters, focusing on questions of law rather than raw fact disputes.]
 D-4.3b - [It ensures consistent interpretations across all active servers.]
 
+D-4.4: Caseload, Removal, and Simulated Transitions
+D-4.4a - [Judicial roles include caseload and docket management guidelines; judges may decline or defer new matters above thresholds to preserve quality and avoid burnout gameplay.]
+D-4.4b - [Impeachment or removal from the bench may be triggered by patterns of abuse, RS/CS trends, Oversight findings, or other defined misconduct metrics.]
+D-4.4c - [Simulated judge decisions remain valid precedent when a human judge is seated, but may be flagged for review and re-evaluated on appeal or through systems such as JPC.]
+
+D-4.5: Judicial Precedent Challenge (JPC) System
+D-4.5a - [The Judicial Precedent Challenge (JPC) system allows newly appointed judges to request review of precedent-setting cases that previously crossed the bench they now occupy.]
+D-4.5b - [Eligibility: a judge may nominate a case for JPC if (1) the case was precedent-setting in IGLL, and (2) the case crossed the judge’s current bench at any point in its lifecycle, regardless of who occupied the seat at the time.]
+D-4.5c - [When nominated, the underlying case remains closed until a firm accepts the challenge. For captioning purposes, the nominating judge is listed as Plaintiff-Appellant and the State (or equivalent) remains Appellee.]
+D-4.5d - [Example caption: “The Hon. [Judge Name] v. State of [Jurisdiction]”.]
+D-4.5e - [Once nominated, the case profile enters MARL0’s Precedent Challenge Queue. The queue is publicly visible, but attorneys only see cases for which they are qualified.]
+D-4.5f - [Precedent Challenge matters function as high-prestige, high-stakes appellate work and are treated as standard appellate cases once accepted.]
+D-4.5g - [Only a Managing Partner may accept a JPC on behalf of a firm. Upon acceptance, the case becomes open and proceeds as a standard appellate matter under existing appeal rules.]
+D-4.5h - [The nominating judge may withdraw their challenge at any time before a firm accepts the case, removing it from MARL0’s queue with no penalty.]
+D-4.5i - [If a JPC remains unaccepted by the end of the nominating judge’s term, the judge incurs a small RS penalty and minor Community Standing penalties from affected players; no penalties apply if the challenge is withdrawn before timeout.]
+D-4.5j - [The JPC system encourages strategic legal maneuvering by judges, creates high-prestige opportunities for elite firms, and enables long-term evolution of server jurisprudence.]
+
 EXHIBIT E: TECHNICAL ARCHITECTURE
 
 E-1: Server Model
 E-1.1a - [OitC launches with a single unified server to ensure critical mass and shared precedent.]
 E-1.1b - [Up to 12 servers may be added as population grows, each supporting transfer events and circuit specialization.]
+E-1.2a - [The initial unified server targets a defined range of concurrent players and active cases (to be specified with the studio) to guide technical planning and capacity decisions.]
+E-1.2b - [Additional servers are created or merged based on metrics such as caseload thresholds, queue times, RS/CS distribution, and regional demand.]
 
 E-2: AI Behavior (Sidebar)
 E-2.1a - [Sidebar handles all player-facing reasoning, explanations, filing assistance, and procedural checks.]
 E-2.1b - [Sidebar respects confidentiality boundaries and does not leak privileged information across roles or cases.]
+E-2.2a - [Sidebar models and prompt-logic may be updated on defined cadences; all players on a server share a consistent Sidebar version during live play.]
+E-2.2b - [Sidebar updates should be tested in staging or with canary users or test servers before rollout to avoid destabilizing live caseflow.]
 
 E-3: Judicial Rules Engine (Backend System)
 E-3.1a - [The JRE is the backend adjudication tool used by Sidebar to mechanically process outcomes, rule validations, timing, and probability-modified results.]
 E-3.1b - [The JRE has no player-facing role; all communication and interpretation comes from Sidebar.]
 E-3.1c - [The JRE is infrastructure, not a pillar, and may be replaced or refactored without affecting player identity or branding.]
+E-3.2a - [JRE updates follow a defined cadence and require regression testing against known case outcomes before going live.]
+E-3.2b - [Rollback rules define when a JRE update may be reverted and how to treat cases decided under the reverted logic, to preserve fairness and clarity.]
 
 EXHIBIT F: MONETIZATION PHILOSOPHY
 
 F-1: Fair Play
 F-1.1a - [OitC avoids pay-to-win mechanics entirely; no purchase may alter legal outcomes.]
 F-1.1b - [Insight Packs may accelerate understanding but never grant hidden mechanical advantages.]
+F-1.2a - [No purchase, subscription, or paid item may modify outcome probabilities, JRE calculations, or judicial decision weight.]
+F-1.2b - [Insight Packs may unlock guided scenarios, additional explanations, or structured learning modules but may not alter RS, CS, IS directly or indirectly improve outcome odds.]
+F-1.2c - [Banned monetization patterns include loot boxes that affect case outcomes, “priority justice” queues that distort fairness, and pay-to-avoid-sanctions mechanics.]
 
 EXHIBIT G: SCALABILITY & EXPANSION
 
 G-1: No Manufactured Work
 G-1.1a - [Courts do not generate artificial cases; all activity originates from real players, their disputes, and their professional actions.]
 G-1.1b - [This preserves realism, prevents meaningless grinding, and keeps every case tied to real player behavior.]
+G-1.1c - [Tutorial-only synthetic matters are allowed inside the Defendant Phase to teach core mechanics and tone.]
+G-1.1d - [Outside of tutorial contexts, all ongoing server-level work must originate from real player actions and disputes.]
 
 G-2: Court Continuity Rule
 G-2.2a - [When a court has no seated human judge, limited simulated judicial processes may operate to keep caseflow moving and prevent bottlenecks.]
 G-2.2b - [Simulated judicial decisions and opinions are part of the in-game record and may create precedent unless and until they are modified or overturned through normal appellate processes.]
 G-2.2c - [Once a human judge is seated, new matters are routed to that judge. Existing simulated rulings remain in force as case history and IGLL doctrine unless changed.]
+G-2.2d - [AI/simulated judges are limited to defined matter types such as routine motions and defaults; precedent-setting questions, sanctions, or Oversight matters must wait for human judges.]
+G-2.2e - [Players retain full rights to challenge AI-issued rulings via normal appellate pathways.]
+G-2.2f - [Simulated decisions may be flagged for review when human judges arrive, including through mechanisms such as JPC.]
 
 G-3: Anti-Abuse Safeguards
 G-3.1a - [Multi-account collusion, RS/CS farming, and other coordinated exploits are prohibited and subject to in-world and system-level consequences.]
 G-3.1b - [Automated drafting is limited to minimal compliance filings; all substantive advocacy must come from real players.]
 G-3.1c - [Judge/attorney alt conflicts are restricted to prevent undue influence over both sides of a case or court.]
 G-3.1d - [Sidebar data-sharing occurs only through approved channels that respect role boundaries, privacy requirements, and Oversight protocols.]
+G-3.2a - [Anti-smurfing rules protect against repeated fresh-account cycling through the Defendant Phase to farm RS/CS or manipulate cases.]
+G-3.2b - [Server-wide restrictions discourage controlling both bench and counsel roles in the same jurisdictional cluster, beyond normal conflict-of-interest rules.]
+G-3.2c - [Anti-abuse tooling should follow transparency and fairness principles, avoiding opaque “shadow bans” or unreviewable penalties wherever possible.]
 
 EXHIBIT H: CONCLUSION
 
 H-1: Future Development Notes
 H-1.1a - [Sidebar versioning and memory-pack systems are under consideration as future R&D efforts and are treated as Expansion Hooks rather than live systems.]
 H-1.1b - [Civil Law expansion, additional court types, and MARL0 cameo requirements remain part of the long-term planning horizon.]
+H-1.2a - [Internal roadmap – Stage 1: Core Loop Prototype (defendant-to-appeal caseflow).]
+H-1.2b - [Internal roadmap – Stage 2: Sidebar Prototype (UI, guidance, and basic research loops).]
+H-1.2c - [Internal roadmap – Stage 3: Case Generation & JRE Prototype; Stage 4: Sharding / High Court integration.]
 
 H-2: Open Design Questions
 H-2.1a - [Jury integration: which case types, at what scale, and with what mechanics should juries be implemented.]
@@ -224,6 +293,10 @@ H-2.1c - [Sanction system: exact mechanics for sanctions, contempt, and professi
 H-2.1d - [Evidence complexity: desired detail level for evidence management, discovery, and evidentiary rules.]
 H-2.1e - [Judge appointment and retention: processes for selecting, evaluating, and rotating judges across servers.]
 H-2.1f - [Server caseload capacity: thresholds for splitting or merging servers based on caseload and player population.]
+
+H-3: Downstream Team Guidance
+H-3.1a - [Design, engineering, art, and narrative teams are encouraged to create specialized documents for their domains, but those documents must remain consistent with this Concept Bible.]
+H-3.1b - [Expansion Hooks listed in H-1 and H-2 are non-binding placeholders until explicitly promoted into core systems in future Concept Bible versions.]
 
 EXHIBIT I: GLOSSARY
 
@@ -238,11 +311,16 @@ I-1.1g - [Sidebar – The in-game AI assistant that provides legal translation, 
 I-1.1h - [Judicial Rules Engine (JRE) – The backend rules and outcome processor that Sidebar uses to resolve procedural checks, timing, and probability-modified results. It is infrastructure, not a pillar.]
 I-1.1i - [Sidebar Versioning – A future memory-pack concept where a player’s Sidebar behavior is influenced by locally stored past interactions, treated as an Expansion Hook.]
 I-1.1j - [Checks & Balances – The combined effect of RS, CS, IS, and procedural design that keeps the ecosystem self-correcting and resistant to abuse.]
-
 I-1.1k - [IRL Law Library (IRLLL) – A structured legal corpus proprietary to Andyland and accessed only by MARL0. It serves as an upstream reference when constructing or revising in-game doctrine.]
 I-1.1l - [In-Game Law Library (IGLL) – The studio-owned in-game legal corpus containing doctrine, precedent, and procedural rules used by all player Sidebars. IGLL evolves through in-game precedent and SCOTUS-approved updates.]
 I-1.1m - [Case Profile – A skeletal, unrendered case definition created by the system before being expanded into a playable matter.]
 I-1.1n - [Rendered Case – A fully realized, playable case generated from a Case Profile based on attorney assignment and server demand.]
+I-1.1o - [Professional Action – Any in-game act performed in a professional role (paralegal, attorney, judge, prosecutor) that can influence RS, CS, or IS.]
+I-1.1p - [Oversight Case – A structured matter that investigates alleged misconduct or systemic abuse within the legal ecosystem, often involving logs from PSP Sidebars and simulated judges.]
+I-1.1q - [Oversight Body – The in-world institution or panel responsible for handling Oversight Cases, impeachment-style investigations, and related accountability mechanisms.]
+I-1.1r - [Simulated Judge – An AI- or system-driven judicial actor used when no human judge is seated, constrained to defined matter types and fully appealable.]
+I-1.1s - [Human Judge – A player-controlled judge with full role responsibilities, subject to RS/CS-based eligibility, Oversight, and removal mechanics.]
+I-1.1t - [Non-Precedential Opinion – An opinion that does not enter IGLL as binding doctrine but may still influence Sidebar guidance, judicial reasoning, or future design decisions.]
 </pre>
   </div>
 </body>
