@@ -57,10 +57,11 @@
       opacity: 1;
     }
 
-    /* z-ordering so CS0002 is on top when it breaks */
-    #panel2 { z-index: 2; }
-    #panel3 { z-index: 1; }
-    #andy   { z-index: 3; }
+    /* z-ordering */
+    #panel2 { z-index: 3; }  /* CS0002 on top initially */
+    #panel3 { z-index: 1; }  /* CS0003 underneath */
+    #panel4 { z-index: 2; }  /* CS0004 page-turn overlay */
+    #andy   { z-index: 4; }  /* blackout on top at the end */
 
     /* Break + fall animation for CS0002 */
     .break-fall {
@@ -91,21 +92,40 @@
         filter: blur(2px);
       }
     }
+
+    /* Page-turn for CS0004 */
+    #panel4 {
+      clip-path: inset(0 0 0 100%); /* start fully hidden */
+    }
+
+    .page-turn-from-3 {
+      animation: pageTurn4 2.5s ease-in-out forwards;
+    }
+
+    @keyframes pageTurn4 {
+      from { clip-path: inset(0 0 0 100%); }  /* hidden off right */
+      to   { clip-path: inset(0 0 0 0); }     /* fully visible */
+    }
   </style>
 </head>
 <body>
   <div class="app-window">
-    <!-- 1s: CS0002 -->
+    <!-- CS0002: shows first, then breaks/falls -->
     <img id="panel2" class="panel visible"
          src="./I-CS0002.jpg"
          alt="Traffic stop concept art panel I-CS0002" />
 
-    <!-- next 5s: CS0003 -->
+    <!-- CS0003: revealed behind CS0002 -->
     <img id="panel3" class="panel"
          src="./I-CS0003.jpg"
          alt="Traffic stop concept art panel I-CS0003" />
 
-    <!-- then: blackout Andy -->
+    <!-- CS0004: page-turn in over CS0003 -->
+    <img id="panel4" class="panel"
+         src="./I-CS0004.jpg"
+         alt="Traffic stop concept art panel I-CS0004" />
+
+    <!-- Blackout Andy -->
     <img id="andy" class="panel"
          src="./blackoutandy.jpg"
          alt="Blackout Andy" />
@@ -114,27 +134,36 @@
   <script>
     const p2   = document.getElementById('panel2');
     const p3   = document.getElementById('panel3');
+    const p4   = document.getElementById('panel4');
     const andy = document.getElementById('andy');
 
-    // After 1s: reveal CS0003 behind, "break + fall" CS0002
+    // t = 1s: reveal CS0003 behind, break + fall CS0002
     setTimeout(() => {
-      // CS0003 comes in
-      p3.classList.add('visible');
+      p3.classList.add('visible');   // CS0003 appears
+      p2.classList.add('break-fall'); // CS0002 breaks/falls
 
-      // CS0002 plays break/fall animation
-      p2.classList.add('break-fall');
-
-      // Once animation is done, clean up its visible flag
+      // after break animation, hide CS0002
       setTimeout(() => {
         p2.classList.remove('visible');
       }, 600); // match breakFall duration
     }, 1000);
 
-    // After 6s total (1s + 5s): CS0003 → blackout Andy
+    // t = 4s: start page-turn CS0003 -> CS0004
+    setTimeout(() => {
+      p4.classList.add('visible');
+      p4.classList.add('page-turn-from-3');
+    }, 4000);
+
+    // t = 6.5s: after page-turn completes, hide CS0003
     setTimeout(() => {
       p3.classList.remove('visible');
+    }, 6500);
+
+    // t = 9.5s: hide CS0004, show blackout Andy
+    setTimeout(() => {
+      p4.classList.remove('visible');
       andy.classList.add('visible');
-    }, 6000);
+    }, 9500);
   </script>
 </body>
 </html>
