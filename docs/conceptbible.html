@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Order in the Court - Concept Bible v9.3</title>
+  <title>Order in the Court - Concept Bible v9.4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -72,7 +72,7 @@ B-4.1c - [EXPANSION HOOK – Planned mechanic not yet implemented, included for 
 
 B-5: Downstream Use of This Concept Bible
 B-5.1a - [This Concept Bible is the canonical source for all design, technical, narrative, and pitch materials. Any derivative document must either comply with it or explicitly mark deviations for review.]
-B-5.1b - [Once adopted, CB-v9.3 supersedes CB-v9.2 for all future development while preserving v9.2 as an archival reference.]
+B-5.1b - [Once adopted, CB-v9.4 supersedes CB-v9.3 for all future development while preserving earlier versions as archival references.]
 
 EXHIBIT C: THE THREE PILLARS
 
@@ -103,6 +103,8 @@ C-3.1b - [The Brand ensures OitC maintains a distinct immersive character—grou
 C-3.1c - [The Brand is a pillar because it defines the experiential identity of OitC, influencing pitch materials, trailers, MARL0 appearances, and the overall atmosphere of the game.]
 C-3.2a - [Forbidden aesthetics include cartoon UIs, neon arcade palettes, medieval parchment motifs, anime courtroom parody, and over-the-top meme styling that undermines realism.]
 C-3.2b - [Required tone includes clean, modern typography; professional, subdued palettes; grounded visual framing; realistic environments; and continuity of tone across all roles and servers.]
+C-3.3a - [Douglas Willard, Esq. is the creator’s in-game character and canonical avatar, serving as a recurring narrative anchor in certain systems (such as bootstrap case generation) without granting mechanical advantages unavailable to other players.]
+C-3.3b - [MARL0 functions both as the parent Sidebar model and as the only system with direct access to the IRL Law Library, supporting IGLL updates and specialized systems such as bootstrap case generation and the JPC queue.]
 
 EXHIBIT D: CORE GAMEPLAY SYSTEMS
 
@@ -112,6 +114,12 @@ D-0.1b - [Each stage provides opportunities to gain RS, build CS, and earn IS th
 D-0.1c - [All matters begin as unrendered Case Profiles—skeletal case definitions created by the system. As attorney assignment and server demand require, these Case Profiles are expanded into fully Rendered Cases made available for play.]
 D-0.1d - [Textual diagram: Case Profile → Rendered Case → Filing → Response → Motions → Hearings → Resolution → Appeal.]
 D-0.1e - [The transition from Case Profile to Rendered Case is triggered by a combination of attorney assignment, player demand, and server caseload thresholds.]
+
+D-0.2: Server Bootstrap Caseflow
+D-0.2a - [At initial server launch, OitC uses a bootstrap caseflow to seed paralegal and attorney roles before organic player-versus-player demand is sufficient.]
+D-0.2b - [During bootstrap, MARL0 selects appropriate Case Profiles and expands them into Rendered Cases with Douglas Willard, Esq. listed as Attorney of Record so that paralegals can gain RS, CS, and IS through real work on system-supplied matters.]
+D-0.2c - [As players qualify for attorney roles and firm infrastructures mature, new matters are increasingly assigned to human attorneys instead of the Willard bootstrap pipeline.]
+D-0.2d - [Bootstrap case generation winds down as natural caseflow becomes dominant; beyond this phase, no new manufactured cases are created except where explicitly allowed under the “No Manufactured Work” exceptions in Exhibit G.]
 
 D-1: Phase 1 – Defendant
 
@@ -133,7 +141,7 @@ D-1.3b - [More advanced appellate gameplay emerges in the Attorney and Judge pha
 D-1.4: Pretrial Status, Progression, and Exceptions
 D-1.4a - [Bail, bond, or pretrial release may be represented in simplified form as access limits, time pressure, or stakes, but remains primarily a narrative and structural device rather than a grind mechanic.]
 D-1.4b - [Players may be disqualified from progressing out of the Defendant Phase for repeated bad-faith conduct, refusal to engage with Sidebar, or failure to complete required tutorial matters.]
-D-1.4c - [Phase 1 tutorial-style defendant cases are the only explicit exception to the “No Manufactured Work” rule; all ongoing server-level work must originate from real player actions and disputes.]
+D-1.4c - [Phase 1 tutorial-style defendant cases are a defined exception to the “No Manufactured Work” rule; all ongoing server-level work outside these contexts must originate from real player actions and disputes, except for the bootstrap and fallback exceptions in Exhibit G.]
 
 D-2: Phase 2 – Paralegal
 
@@ -229,6 +237,9 @@ E-1.1a - [OitC launches with a single unified server to ensure critical mass and
 E-1.1b - [Up to 12 servers may be added as population grows, each supporting transfer events and circuit specialization.]
 E-1.2a - [The initial unified server targets a defined range of concurrent players and active cases (to be specified with the studio) to guide technical planning and capacity decisions.]
 E-1.2b - [Additional servers are created or merged based on metrics such as caseload thresholds, queue times, RS/CS distribution, and regional demand.]
+E-1.3a - [Each court type supports a placeholder judicial mode in which a simulated judge instance may be activated when no qualified human judge is seated and caseflow would otherwise stall.]
+E-1.3b - [Placeholder judges share the same JRE and IGLL inputs as human judges but are constrained to matter types and authority levels defined in Exhibit G.]
+E-1.3c - [When a human judge is appointed to a court, new matters are routed to the human judge; placeholder instances are used only as a fallback and should be phased out wherever sustainable.]
 
 E-2: AI Behavior (Sidebar)
 E-2.1a - [Sidebar handles all player-facing reasoning, explanations, filing assistance, and procedural checks.]
@@ -255,10 +266,10 @@ F-1.2c - [Banned monetization patterns include loot boxes that affect case outco
 EXHIBIT G: SCALABILITY & EXPANSION
 
 G-1: No Manufactured Work
-G-1.1a - [Courts do not generate artificial cases; all activity originates from real players, their disputes, and their professional actions.]
-G-1.1b - [This preserves realism, prevents meaningless grinding, and keeps every case tied to real player behavior.]
-G-1.1c - [Tutorial-only synthetic matters are allowed inside the Defendant Phase to teach core mechanics and tone.]
-G-1.1d - [Outside of tutorial contexts, all ongoing server-level work must originate from real player actions and disputes.]
+G-1.1a - [By default, courts do not generate artificial cases; all ongoing server-level activity should originate from real players, their disputes, and their professional actions.]
+G-1.1b - [FIXED RULE – Manufactured work is prohibited except for three categories: (1) tutorial defendant matters in Phase 1, (2) server bootstrap cases generated via Douglas Willard, Esq. and MARL0 when attorney supply is insufficient, and (3) limited simulated-judge fallback necessary to prevent systemic stall when no human judge is available.]
+G-1.1c - [These exceptions exist to teach core mechanics, seed the professional ecosystem, and preserve continuity; they are tightly scoped and should not expand into general-purpose grind systems.]
+G-1.1d - [Outside these defined exceptions, all ongoing server-level work must originate from real player actions and disputes.]
 
 G-2: Court Continuity Rule
 G-2.2a - [When a court has no seated human judge, limited simulated judicial processes may operate to keep caseflow moving and prevent bottlenecks.]
