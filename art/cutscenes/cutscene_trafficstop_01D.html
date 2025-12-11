@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <title>OITC – Traffic Stop · 01D</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <style>
+    :root {
+      --bg: #000000;
+    }
 
-        <style>
     * {
       margin: 0;
       padding: 0;
@@ -35,68 +38,60 @@
       background: #000;
     }
 
+    .app-window img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* same behavior as 01 */
+      background: #000;
+      display: block;
+    }
+
     .panel {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: none; /* hidden by default */
+      opacity: 0;
+      transition: opacity 0.3s linear;
     }
 
-    .visible {
-      display: block !important;
-    }
-
-    @media (orientation: landscape) {
-      .app-window {
-        height: 100vh;
-        max-height: 100vh;
-        width: auto;
-        max-width: 100vw;
-      }
+    .panel.visible {
+      opacity: 1;
     }
   </style>
-
-
-
 </head>
 <body>
-
   <div class="app-window">
+    <!-- 1s: CS0002 -->
+    <img id="panel2" class="panel visible"
+         src="./I-CS0002.jpg"
+         alt="Traffic stop concept art panel I-CS0002" />
 
-    <!-- Panel 1: CS0002 -->
-    <img id="p2" class="panel" src="./I-CS0002.jpg">
+    <!-- next 5s: CS0003 -->
+    <img id="panel3" class="panel"
+         src="./I-CS0003.jpg"
+         alt="Traffic stop concept art panel I-CS0003" />
 
-
-    <!-- Panel 2: CS0003 -->
-    <img id="p3" class="panel" src="./I-CS0003.jpg" alt="CS0003" />
-
-    <!-- Final: blackoutandy -->
-    <img id="andy" class="panel" src="./blackoutandy.jpg" alt="Blackout Andy" />
-
+    <!-- then: blackout Andy -->
+    <img id="andy" class="panel"
+         src="./blackoutandy.jpg"
+         alt="Blackout Andy" />
   </div>
 
   <script>
+    const p2 = document.getElementById('panel2');
+    const p3 = document.getElementById('panel3');
+    const andy = document.getElementById('andy');
 
-setTimeout(() => {
-  document.getElementById("p2").classList.remove("preload-hide");
-}, 10);   // show it after 0.01 s
-
-
-    // Step 1: After 1 second, show CS0003
+    // After 1s, switch CS0002 → CS0003
     setTimeout(() => {
-      document.getElementById("p2").classList.remove("visible");
-      document.getElementById("p3").classList.add("visible");
-    }, 1000); // 1 second
+      p2.classList.remove('visible');
+      p3.classList.add('visible');
+    }, 1000);
 
-
-    // Step 2: After 1s + 5s = 6 seconds, show blackoutAndy
+    // After 1s + 5s = 6s, switch CS0003 → blackout Andy
     setTimeout(() => {
-      document.getElementById("p3").classList.remove("visible");
-      document.getElementById("andy").classList.add("visible");
-    }, 6000); // 6 seconds total
+      p3.classList.remove('visible');
+      andy.classList.add('visible');
+    }, 6000);
   </script>
-
 </body>
 </html>
