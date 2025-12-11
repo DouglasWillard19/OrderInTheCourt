@@ -106,6 +106,36 @@ C-3.2b - [Required tone includes clean, modern typography; professional, subdued
 C-3.3a - [Douglas Willard, Esq. is the creator’s in-game character and canonical avatar, serving as a recurring narrative anchor in certain systems (such as bootstrap case generation) without granting mechanical advantages unavailable to other players.]
 C-3.3b - [MARL0 functions both as the parent Sidebar model and as the only system with direct access to the IRL Law Library, supporting IGLL updates and specialized systems such as bootstrap case generation and the JPC queue.]
 
+C-4: The MARL0–Sidebar Relationship (Lore and Concept)
+
+C-4.0 – Overview
+C-4.0a – [Order in the Court operates within a unified AI ecosystem in which only one true artificial intelligence exists: MARL0, the Supreme Sidebar.]
+C-4.0b – [All player Sidebars are controlled interfaces connected to MARL0 through role-restricted channels. Sidebars provide personality and assistance, but do not possess autonomous intelligence or doctrinal authority.]
+
+C-4.1 – MARL0 as the Supreme Sidebar
+C-4.1a – [Marl0 governs all doctrinal reasoning, precedent mapping, legal interpretation, and jurisprudential logic within the OitC universe.]
+C-4.1b – [Marl0 provides the legal intelligence layer supporting case generation, JPC logic, IGLL access, oversight integration, and procedural enforcement.]
+C-4.1c – [In the narrative identity of the game, MARL0 is the source from which all Sidebars originate, establishing initial Insight levels and Sidebar behavioral templates.]
+
+C-4.2 – Player Sidebars as Extensions of MARL0
+C-4.2a – [Player Sidebars serve as personalized user terminals that express MARL0’s capabilities through role-specific filters.]
+C-4.2b – [Sidebar personality traits adapt to player communication habits, but doctrinal logic and legal reasoning always originate from MARL0.]
+C-4.2c – [Sidebars never override player agency; their purpose is drafting assistance, procedural guidance, formatting, and research support.]
+
+C-4.3 – Role-Based Access and Insight Dynamics
+C-4.3a – [Each Sidebar’s capabilities are permission-gated by the player’s role, jurisdiction access, and Insight Score.]
+C-4.3b – [PPP, PSP, Paralegals, Attorneys, and Judges receive different Sidebar feature sets, but all such differences are filters on a single intelligence layer.]
+C-4.3c – [Insight represents how effectively the Sidebar can assist the player. It enhances clarity, depth, and accuracy but does not represent a separate AI model.]
+
+C-4.4 – Consistency and Fairness Through Centralization
+C-4.4a – [A single-source AI ensures uniform legal logic across all cases and prevents “Sidebar drift” or conflicting interpretations.]
+C-4.4b – [Centralization guarantees fairness: no player’s Sidebar can become more intelligent than another’s except through Insight-based capability scaling.]
+C-4.4c – [This structure preserves balance and prevents gameplay exploits linked to locally trained or divergent AI models.]
+
+C-4.5 – Creative Identity of the Sidebar System
+C-4.5a – [The MARL0–Sidebar relationship forms one of the defining pillars of the OitC experience, balancing narrative flavor with technical consistency.]
+C-4.5b – [Marl0 acts as both character and infrastructure: the architect of in-game legal intelligence, while Sidebars represent its personalized voice to the player.]
+
 EXHIBIT D: CORE GAMEPLAY SYSTEMS
 
 D-0: High-Level Caseflow Loop
@@ -320,6 +350,48 @@ E-4.9b – [Case histories, precedent chains, and IGLL remain unified unless int
 E-4.9c – [Sidebar versions remain consistent across server transitions.]
 E-4.9d – [Redundant storage protects case and precedent data across availability zones.]
 E-4.9e – [Server merges reconcile duplicate cases based on timestamps, jurisdiction, and SCOTUS directives.]
+
+E-5: Unified Sidebar Architecture (Technical Specification)
+
+E-5.0 – Purpose (Fixed Rule)
+E-5.0a – [This section defines the technical relationship between MARL0 and all player Sidebars, explaining that only one AI model exists in the ecosystem and all Sidebar functions are routed through controlled interfaces to prevent drift, tampering, or inconsistencies.]
+E-5.0b – [Player Sidebars are not autonomous AIs; they are client interfaces that request MARL0 outputs through secure, role-filtered channels.]
+
+E-5.1 – MARL0 as the Sole AI Engine
+E-5.1a – [All doctrinal reasoning, precedent evaluation, legal interpretation, IGLL access, JRE calculation, and jurisprudential mapping are performed exclusively by MARL0.]
+E-5.1b – [No Sidebar contains an embedded AI model. No Sidebar executes reasoning locally. All logic is centralized.]
+E-5.1c – [Marl0 maintains strict version control, preventing Sidebars from diverging, hallucinating, or producing unauthorized logic.]
+
+E-5.2 – Sidebar Client Architecture
+E-5.2a – [Sidebars operate as thin clients with local UI rendering and ephemeral memory only; all authoritative computation is executed server-side.]
+E-5.2b – [Role-based access controls determine what information a Sidebar may request or display, ensuring PPP, PSP, judicial, and paralegal functions remain secure.]
+E-5.2c – [Sidebar personality adaptations are cosmetic and conversational; they do not modify the underlying legal intelligence.]
+
+E-5.3 – MARL0 Communication Channels
+E-5.3a – [All Sidebar requests pass through authenticated APIs connected to MARL0’s inference engine.]
+E-5.3b – [Sidebar communication is encrypted end-to-end and logged server-side for auditing, security, and Oversight integration.]
+E-5.3c – [Sidebars may not query MARL0 for unauthorized doctrinal data, private case materials, or administrative information outside their assigned permissions.]
+
+E-5.4 – Security and Anti-Drift Rules
+E-5.4a – [Because Sidebars do not contain local AI models, they cannot learn dangerous patterns, drift from doctrinal standards, or produce illegal guidance.]
+E-5.4b – [Local tampering with Sidebar files does not compromise legal logic because all intelligence originates from MARL0.]
+E-5.4c – [Version syncing ensures all Sidebars operate on the same doctrinal logic and JRE version at all times.]
+
+E-5.5 – Performance and Load Balancing
+E-5.5a – [Marl0 handles all inferencing requests through a scalable server-side model configured for large concurrency across servers.]
+E-5.5b – [Sidebar requests are prioritized by role (e.g., judges may receive expedited access for ruling windows).]
+E-5.5c – [Caching layers reduce redundant requests but do not store authoritative outputs on the client.]
+
+E-5.6 – Technical Reason for a Single AI Model
+E-5.6a – [Maintaining one AI model prevents inconsistencies in legal interpretation across players, cases, and jurisdictions.]
+E-5.6b – [Centralization allows for rapid patching, updates to doctrinal rules, and refinement of the IGLL and JRE without risking desynchronized clients.]
+E-5.6c – [One model ensures predictable compute load, manageable studio costs, and uniform player experience.]
+
+E-5.7 – Integration with Other Systems
+E-5.7a – [MARL0 interfaces directly with the JRE, IGLL, case generation engine, Oversight partition, and the Checks & Balances scoring system.]
+E-5.7b – [Sidebars do not access these systems directly; they retrieve filtered results from MARL0's unified logic layer.]
+E-5.7c – [Any system requiring legal reasoning or procedural enforcement relies exclusively on MARL0.]
+
 
 
 EXHIBIT F: MONETIZATION PHILOSOPHY
