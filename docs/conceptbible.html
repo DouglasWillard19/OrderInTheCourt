@@ -392,6 +392,67 @@ E-5.7a – [MARL0 interfaces directly with the JRE, IGLL, case generation engine
 E-5.7b – [Sidebars do not access these systems directly; they retrieve filtered results from MARL0's unified logic layer.]
 E-5.7c – [Any system requiring legal reasoning or procedural enforcement relies exclusively on MARL0.]
 
+E-6: Procedural Cutscene Engine (JRE-Driven Visual System)
+
+E-6.0 – Purpose
+E-6.0a – [The cutscene engine converts JRE outputs, case milestones, and player actions into dynamic visual sequences using modular art assets.]
+E-6.0b – [Cutscenes provide narrative clarity and player engagement without requiring bespoke animation for each case.]
+E-6.0c – [All cutscenes are assembled procedurally using reusable panels, transitions, and Sidebar overlays.]
+
+E-6.1 – JRE Trigger Framework
+E-6.1a – [Each relevant JRE event maps to a “scene type,” such as arrest, arraignment, plea, trial start, verdict, appeal, or JPC initiation.]
+E-6.1b – [Scene types do not contain art; they reference panel pools and transitional rules.]
+E-6.1c – [Case Profiles supply contextual information, including player identity, roles, charges, jurisdiction, and Sidebar state.]
+
+E-6.2 – Panel Pools
+E-6.2a – [Each scene type has a corresponding pool of modular visual panels, including characters, backgrounds, motion frames, and dialogue frames.]
+E-6.2b – [Panels support avatar swaps, expression changes, wardrobe changes, jurisdictional backgrounds, and courtroom settings.]
+E-6.2c – [Panels are layered for efficient reuse across thousands of cases, reducing art production demands.]
+
+E-6.3 – Transition System
+E-6.3a – [Cutscenes use simple, reusable transitions such as fades, slides, page turns, casefile flips, and Sidebar flickers.]
+E-6.3b – [Transitions are selected automatically based on scene type and pacing.]
+E-6.3c – [Transition templates require minimal animation work, enabling high-volume production.]
+
+E-6.4 – Sidebar Integration
+E-6.4a – [Sidebar provides dynamic dialogue bubbles, legal commentary, procedural explanations, and player-guided prompts during cutscenes.]
+E-6.4b – [Sidebar’s tone, Insight level, and role-based access determine the style and detail of displayed information.]
+E-6.4c – [Sidebar overlays appear as part of the visual system but originate from MARL0’s reasoning layer.]
+
+E-6.5 – Case Milestone Mapping
+E-6.5a – [The cutscene engine tracks milestone IDs tied to JRE events such as filings, motions, hearings, rulings, and appeals.]
+E-6.5b – [Milestones determine the specific order of panels, transitions, and Sidebar commentary.]
+E-6.5c – [This structure enables cutscenes to remain consistent across jurisdictions while retaining case-specific differences.]
+
+E-6.6 – Character and Avatar System
+E-6.6a – [Character avatars support modular expressions, posture changes, and minor movement cycles for use across scenes.]
+E-6.6b – [Players may customize their avatars; these customizations propagate automatically to cutscenes.]
+E-6.6c – [NPC avatars (e.g., judges, prosecutors, attorneys) follow standardized templates to maintain clarity.]
+
+E-6.7 – High-Volume Case Throughput
+E-6.7a – [The procedural system supports unlimited unique cutscenes without requiring bespoke art for each case.]
+E-6.7b – [New panels, avatars, and transitions may be added seasonally to expand visual diversity at low production cost.]
+E-6.7c – [This design enables OitC to scale across hundreds of servers and millions of cases.]
+
+E-6.8 – JPC Cinematic Layer
+E-6.8a – [Judicial Precedent Challenges trigger enhanced cutscene sequences emphasizing judicial authority and server-wide impact.]
+E-6.8b – [JPC visuals may include gavel zooms, precedent book animations, appellate court reveals, and Sidebar commentary explaining the stakes.]
+E-6.8c – [These sequences reinforce the prestige and strategic weight of JPC actions in the legal ecosystem.]
+
+E-6.9 – Studio Production Requirements
+E-6.9a – [The art team produces modular panel packs, avatar templates, expression sets, and a limited library of background environments.]
+E-6.9b – [The animation team creates a small set of transition effects reused across all cutscenes.]
+E-6.9c – [The system minimizes bespoke animation, allowing a boutique studio to deliver cinematic presentation at low cost.]
+
+E-6.10 – Technical Efficiency
+E-6.10a – [Cutscenes are assembled client-side from server-provided scene instructions to reduce bandwidth and server load.]
+E-6.10b – [Assets are cached locally to accelerate playback while remaining non-authoritative and safe to purge.]
+E-6.10c – [Scene assembly rules are lightweight and compatible with cross-platform deployment.]
+
+E-6.11 – Identity and Branding
+E-6.11a – [The cutscene engine gives OitC its signature “procedural courtroom drama” aesthetic.]
+E-6.11b – [By integrating MARL0, Sidebar overlays, and JRE-driven logic, cutscenes reinforce OitC’s identity as a living legal universe.]
+E-6.11c – [Cutscenes also serve as educational framing devices, teaching players the flow of real legal procedures.]
 
 
 EXHIBIT F: MONETIZATION PHILOSOPHY
