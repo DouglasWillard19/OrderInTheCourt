@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>OITC – Traffic Stop · 01</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <style>
     :root {
       --bg: #000000;
-      --frame-border: #202020;
-      --frame-radius: 18px;
 
       --wheel-bg: rgba(0, 0, 0, 0.75);
       --wheel-border: rgba(255, 255, 255, 0.18);
@@ -18,34 +10,33 @@
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
       width: 100%;
+      background: #000;
     }
 
     body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  overflow: hidden;              /* no scrolling */
-}
-
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      min-height: 100vh;
+    }
 
     .app-window {
-  position: fixed;               /* pin to viewport */
-  inset: 0;                      /* top:0; right:0; bottom:0; left:0; */
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background: #000;
-}
-
-
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
 
     .app-window img {
       width: 100%;
@@ -53,43 +44,6 @@
       object-fit: cover;
       display: block;
     }
-
-  
-
-  .app-window {
-    position: relative;
-    width: 100vw;
-    height: 100vh;            /* you can also try 100dvh if your phone supports it */
-    max-width: 100vw;
-    max-height: 100vh;
-    border-radius: 0;
-    border: none;
-    margin: 0;                /* no margins at all */
-    overflow: hidden;
-    background: #000;
-  }
-}
-
-
-   /* @media (orientation: landscape) {
-      .app-window {
-        height: 100vh;
-        max-height: 100vh;
-        width: auto;
-        max-width: 100vw;
-      }
-    }
-
-      .app-window {
-        width: 100vw;
-        height: 100vh;
-        max-width: 100vw;
-        max-height: 100vh;
-        border-radius: 0;
-        border: none;
-        margin: 0;
-      }
-    */
 
     /* Panel 1: fade in */
     .fade-in {
@@ -233,84 +187,3 @@
       color: var(--wheel-accent);
     }
   </style>
-</head>
-<body>
-  <div class="app-window">
-    <!-- Panel 1 : CS0001 -->
-    <img src="./I-CS0001.jpg" class="fade-in" alt="Traffic stop concept art panel I-CS0001" />
-
-    <!-- Panel 2 : CS0002 -->
-    <img id="img2" src="./I-CS0002.jpg" alt="Traffic stop concept art panel I-CS0002" />
-
-    <!-- Wheel 1 : choices A–D -->
-    <div class="dialog-wheel" id="dialogWheel">
-      <div class="dialog-wheel-inner">
-        <div class="dialog-wheel-header">
-          <span>Choose your response</span>
-          <span>⚖️ OITC</span>
-        </div>
-
-        <div class="dialog-wheel-grid">
-          <!-- Top row: A and B -->
-          <button class="choice-btn" data-choice="A">
-            <span class="choice-dot"></span>
-            <span class="choice-label">[Choice A]</span>
-          </button>
-
-          <button class="choice-btn" data-choice="B">
-            <span class="choice-dot"></span>
-            <span class="choice-label">[Choice B]</span>
-          </button>
-
-          <!-- Bottom row: C and D -->
-          <button class="choice-btn" data-choice="C">
-            <span class="choice-dot"></span>
-            <span class="choice-label">[Choice C]</span>
-          </button>
-
-          <button class="choice-btn" data-choice="D">
-            <span class="choice-dot"></span>
-            <span class="choice-label">Run off on him</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const wheel = document.getElementById('dialogWheel');
-    const choiceButtons = wheel.querySelectorAll('.choice-btn');
-
-    function showWheel() {
-      wheel.classList.add('visible');
-    }
-
-    function hideWheel() {
-      wheel.classList.remove('visible');
-    }
-
-    // 10s (start pageTurnIn) + 2.5s (duration) + 5s (hold) = 17.5s
-    setTimeout(showWheel, 17500);
-
-    choiceButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const choiceId = btn.getAttribute('data-choice');
-        console.log('Choice selected in 01:', choiceId);
-
-        hideWheel();
-
-        // Branch to the appropriate next cutscene
-        if (choiceId === 'A') {
-          window.location.href = "cutscene_trafficstop_01A.html";
-        } else if (choiceId === 'B') {
-          window.location.href = "cutscene_trafficstop_01B.html";
-        } else if (choiceId === 'C') {
-          window.location.href = "cutscene_trafficstop_01C.html";
-        } else if (choiceId === 'D') {
-          window.location.href = "cutscene_trafficstop_01D.html";
-        }
-      });
-    });
-  </script>
-</body>
-</html>
