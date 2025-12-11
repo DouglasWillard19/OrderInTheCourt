@@ -254,6 +254,74 @@ E-3.1c - [The JRE is infrastructure, not a pillar, and may be replaced or refact
 E-3.2a - [JRE updates follow a defined cadence and require regression testing against known case outcomes before going live.]
 E-3.2b - [Rollback rules define when a JRE update may be reverted and how to treat cases decided under the reverted logic, to preserve fairness and clarity.]
 
+E-4: Data Architecture & Storage Model
+
+E-4.0 – Purpose (Fixed Rule)
+E-4.0a – [The Data Architecture defines which information is stored locally, which information is server-authoritative, and how all gameplay-critical systems maintain integrity, privacy, and fairness.]
+E-4.0b – [No client device may be trusted with gameplay-critical data. All authoritative records, scores, decisions, filings, and evidence reside on secure server infrastructure.]
+E-4.0c – [Local storage, when used, is limited to performance optimization and temporary Sidebar memory. Local storage may never contain outcomes, RS/CS/IS data, case states, or authoritative legal documents.]
+
+E-4.1 – Local vs Server Data Rules (Fixed Rule)
+E-4.1a – [Server systems hold all authoritative legal data, including IGLL, case records, evidence, RS/CS/IS, JRE versions, and judicial decisions.]
+E-4.1b – [Client devices may only store ephemeral, non-authoritative data such as UI preferences, download caches, or temporary Sidebar memory packs.]
+E-4.1c – [All authoritative actions must be executed server-side. Client-submitted timestamps, filings, or score changes are rejected automatically.]
+E-4.1d – [If discrepancies occur between client and server data, the server state always prevails.]
+
+E-4.2 – Sidebar Memory and Local Caching Rules
+E-4.2a – [Sidebar may store short-term session memory locally for pacing and conversational continuity, but this data is non-authoritative and may be cleared without impact to gameplay.]
+E-4.2b – [Sidebar may not store privileged transcripts, case evidence, RS/CS/IS, judicial decisions, or other sensitive materials locally.]
+E-4.2c – [Sidebar syncs with the server at session start to retrieve permissions, IGLL updates, and JRE versions. Version mismatches prevent gameplay.]
+E-4.2d – [Sidebar memory packs store only conversational refinements. They do not store doctrinal logic, legal outcomes, or strategic data.]
+
+E-4.3 – RS, CS, and IS Storage and Integrity
+E-4.3a – [RS, CS, and IS exist only on the server in immutable, tamper-resistant form.]
+E-4.3b – [RS changes are recorded as append-only event entries, including timestamps and case references.]
+E-4.3c – [CS is stored as a server-level relationship graph. CS edges cannot be edited by players or Sidebars.]
+E-4.3d – [IS is calculated server-side based on learning events and Sidebar performance, preventing local manipulation.]
+E-4.3e – [Players may view summaries of their RS, CS, and IS but not raw internal logs.]
+
+E-4.4 – Case Storage, Evidence, and Filing Persistence
+E-4.4a – [All case records, filings, evidence, transcripts, and rulings are stored server-side and tied to unique Case IDs.]
+E-4.4b – [Evidence is stored in server-hosted repositories; Sidebar retrieves only the portions required for authorized tasks.]
+E-4.4c – [Clients may temporarily cache evidence for performance but cannot modify it. Integrity checks run automatically.]
+E-4.4d – [Draft filings may exist locally but become authoritative only after server submission, at which point they are hashed.]
+E-4.4e – [All stored filings include metadata such as author role, timestamp, jurisdiction, and representation context.]
+E-4.4f – [Case histories persist permanently to support precedent, JPC, Oversight, and appellate review.]
+
+E-4.5 – Oversight Partition and Restricted Data Access
+E-4.5a – [Oversight operates in a segregated server partition inaccessible to PPP roles or general Sidebars.]
+E-4.5b – [Only authorized PSP roles and MARL0 may access Oversight systems.]
+E-4.5c – [PSP Sidebar logs are stored as append-only records. Log deletions become archival states rather than removals.]
+E-4.5d – [Oversight data is encrypted at rest and in transit. No client device may store Oversight information.]
+E-4.5e – [Oversight investigations generate persistent audit trails.]
+
+E-4.6 – JRE Distribution and Version Sync
+E-4.6a – [The JRE is versioned, server-authoritative, and globally applied to all logic affecting procedure or outcomes.]
+E-4.6b – [Clients must sync to the current JRE version before participating in hearings, filings, or Sidebar interactions.]
+E-4.6c – [Case IDs retain references to the JRE version in use at time of decision, ensuring post-update consistency.]
+E-4.6d – [JRE rollback is possible. Cases affected by logic changes may be flagged for review.]
+
+E-4.7 – Placeholder Judges and AI Judicial Storage
+E-4.7a – [Placeholder judges operate server-side and apply the same JRE logic as human judges, within restricted parameters.]
+E-4.7b – [AI judicial decisions are stored in the same permanent case chain as human rulings, with metadata indicating AI authorship.]
+E-4.7c – [AI judges cannot set new precedent unless jurisdictional rules allow it.]
+E-4.7d – [When a human judge assumes a bench, new matters are routed to that judge immediately. Placeholder judges deactivate automatically.]
+E-4.7e – [AI decisions may be appealed or challenged through the Judicial Precedent Challenge system.]
+
+E-4.8 – Anti-Tamper and Client Restrictions
+E-4.8a – [Client devices may not generate authoritative timestamps, modify filings after submission, or fabricate case events.]
+E-4.8b – [Sidebar must rely on server-delivered IGLL and JRE logic, not local data, for all legal reasoning.]
+E-4.8c – [Local drafts must pass server validation for formatting, jurisdiction checks, and privilege compliance.]
+E-4.8d – [Modifying local game files to influence outcomes results in automated enforcement consequences.]
+
+E-4.9 – Server Split, Merge, and Recovery Rules
+E-4.9a – [Server splits occur under defined conditions; RS, CS, and IS are copied server-side to prevent divergence.]
+E-4.9b – [Case histories, precedent chains, and IGLL remain unified unless intentionally forked by SCOTUS-level directive.]
+E-4.9c – [Sidebar versions remain consistent across server transitions.]
+E-4.9d – [Redundant storage protects case and precedent data across availability zones.]
+E-4.9e – [Server merges reconcile duplicate cases based on timestamps, jurisdiction, and SCOTUS directives.]
+
+
 EXHIBIT F: MONETIZATION PHILOSOPHY
 
 F-1: Fair Play
