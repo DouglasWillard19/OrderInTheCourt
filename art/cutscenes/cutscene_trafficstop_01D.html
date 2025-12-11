@@ -4,61 +4,48 @@
   <meta charset="UTF-8" />
   <title>OITC – Traffic Stop · 01D</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <style>
-    :root {
-      --bg: #000000;
-      --frame-border: #202020;
-      --frame-radius: 18px;
-    }
 
+        <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
       height: 100%;
       width: 100%;
+      background: #000;
     }
 
     body {
-      background: var(--bg);
       display: flex;
-      align-items: stretch;
       justify-content: center;
+      align-items: stretch;
       min-height: 100vh;
     }
 
     .app-window {
-      height: 100vh;
-      max-height: 100vh;
-      background: #000;
-      border-radius: var(--frame-radius);
-      border: 1px solid var(--frame-border);
-      overflow: hidden;
-      margin-left: auto;
-      margin-right: auto;
       position: relative;
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      overflow: hidden;
+      background: #000;
     }
 
-    .app-window img {
+    .panel {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      display: none; /* hidden by default */
     }
 
-    @media (orientation: portrait) {
-      .app-window {
-        width: 100vw;
-        height: 100vh;
-        max-width: 100vw;
-        max-height: 100vh;
-        border-radius: 0;
-        border: none;
-        margin: 0;
-      }
+    .visible {
+      display: block !important;
     }
 
     @media (orientation: landscape) {
@@ -69,34 +56,47 @@
         max-width: 100vw;
       }
     }
-
-    /* Base panel: CS0002, always visible */
-    #img2 {
-      position: absolute;
-      inset: 0;
-    }
-
-    /* Andy overlay: fades in after 1s over 2.5s */
-    #andy {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      animation: fadeAndyIn 2.5s ease-in-out forwards 1s;
-    }
-
-    @keyframes fadeAndyIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
   </style>
+
+
+
 </head>
 <body>
-  <div class="app-window">
-    <!-- Panel 2 : CS0002 (solid base) -->
-    <img id="img2" src="./I-CS0002.jpg" alt="Traffic stop panel CS0002" />
 
-    <!-- Debug overlay: blackoutandy fades in -->
-    <img id="andy" src="./blackoutandy.jpg" alt="Debug blackout Andy" />
+  <div class="app-window">
+
+    <!-- Panel 1: CS0002 -->
+    <img id="p2" class="panel visible preload-hide" src="./I-CS0002.jpg">
+
+
+    <!-- Panel 2: CS0003 -->
+    <img id="p3" class="panel" src="./I-CS0003.jpg" alt="CS0003" />
+
+    <!-- Final: blackoutandy -->
+    <img id="andy" class="panel" src="./blackoutandy.jpg" alt="Blackout Andy" />
+
   </div>
+
+  <script>
+
+setTimeout(() => {
+  document.getElementById("p2").classList.remove("preload-hide");
+}, 10);   // show it after 0.01 s
+
+
+    // Step 1: After 1 second, show CS0003
+    setTimeout(() => {
+      document.getElementById("p2").classList.remove("visible");
+      document.getElementById("p3").classList.add("visible");
+    }, 1000); // 1 second
+
+
+    // Step 2: After 1s + 5s = 6 seconds, show blackoutAndy
+    setTimeout(() => {
+      document.getElementById("p3").classList.remove("visible");
+      document.getElementById("andy").classList.add("visible");
+    }, 6000); // 6 seconds total
+  </script>
+
 </body>
 </html>
