@@ -16,59 +16,151 @@
       padding: 16px;
       box-sizing: border-box;
     }
-    pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      font-family: "Courier New", Courier, monospace;
-      font-size: 15px;
-      line-height: 1.4;
-      margin: 0;
-    }
-details,
-  summary,
-  p,
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-    line-height: 1.25;  /* tighten if you want */
-  }
-</style>
+   .cb-text {
+  white-space: pre-wrap;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.1;   /* single spacing */
+  margin: 0;
+}
 
+.cb-line {
+  padding-left: 3.5em;   /* space reserved for the label */
+  text-indent: -3.5em;   /* pull first line back */
+}
+  
+details {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+  </style>
 </head>
 <body>
   <div class="wrapper">
-    <pre>FOREWORD – Conceptual Scope & Development Role
+   <div class="cb-text">
+<details>
+<summary>FOREWORD – Conceptual Scope & Development Role</summary>
+This Concept Bible is intended to communicate the conceptual framework, systemic philosophy, and continuity boundaries of Order in the Court. It is not a production specification, a finalized technical design, or a locked implementation plan. Rather, it is a map of intent—describing how the world, systems, and roles of the game are meant to relate to one another at a foundational level.
 
-EXHIBIT A – Executive Summary
+The ideas presented here are deliberately structural rather than prescriptive. They are meant to give experienced developers, designers, and engineers a clear understanding of what must remain coherent as the game evolves, while leaving ample room for iteration, optimization, and alternative implementations. This document assumes that the studio entrusted with building Order in the Court knows what it is doing, and it is written with respect for that expertise.
 
-EXHIBIT B – Core Design Philosophy
+Where questions arise—whether technical, systemic, or narrative—they are not only expected but welcomed. I am happy to discuss any aspect of this Concept Bible in detail. The purpose of those conversations is not to enforce rigidity, but to help resolve continuity questions, preserve the underlying philosophy, and ensure that the game remains internally consistent as it grows.
 
+During development, my intended role within the studio is that of Chief Justice. In this capacity, I serve as the steward of the game’s conceptual framework: its legal logic, systemic coherence, and narrative continuity. I am available to interpret this document, clarify intent, and help navigate design decisions that touch on the core identity of the project.
+
+That role, however, is advisory by design. While this Concept Bible reflects my voice and authority at the conceptual level, the Chief Justice does not possess decision-making power over production, implementation, scheduling, or final design choices unless explicitly invited to do so. Final authority rests with the studio and its designated leadership.
+
+Order in the Court is meant to be built collaboratively—balancing a strong, coherent vision with the practical realities and creative insights of the development team. This Concept Bible exists to support that collaboration, not to constrain it.
+</details>
+<details>
+  <summary>EXHIBIT A – Executive Summary</summary>
+A-1 - [Placeholder l]
+A-2 - [Placeholder 2]
+</details>
+<details>
+  <summary>EXHIBIT B – Core Design Philosophy</summary>
+B-1 - [Placeholder l]
+B-2 - [Placeholder 2]
+</details>
 <details>
   <summary>EXHIBIT C – Player Roles & Career Paths</summary>
-  <ul>
-    <li>[Placeholder 1]</li>
-    <li>[Placeholder 2]</li>
-  </ul>
+C-1 - [Placeholder 1]
+C-2 - [Placeholder 2]
+</details>
+<details>
+  <summary>EXHIBIT D – Gameplay Structure & Case Lifecycle</summary>
+D-1 - [Placeholder 1]
+D-2 - [Placeholder 2]
+</details>
+<details>
+  <summary>EXHIBIT E – Checks, Balances & Accountability</summary>
+E-1 - [Placeholder 1]
+E-2 - [Placeholder 2]
+</details>
+<details>
+  <summary>EXHIBIT F – Sidebar (Player Interface & Mediation Layer)</summary>
+F-1 - [Placeholder 1]
+F-2 - [Placeholder 2]
+</details>
+<details><summary>EXHIBIT G – MARL0 (Backend Systems)</summary><details>
+    <summary>G-1 - MARL0 — Dual Identity Clarification</summary><div class="cb-line">
+
+	G-1.1 - [“MARL0” refers to two distinct but related IP-owned entities within Order in the Court.]</div>
+<div class="cb-line">	G-1.2 - [The first is MARL0 as a backend AI interface: a functional system layer that supports gameplay through scoped, non-discretionary AI-assisted operations.]</div>
+<div class="cb-line">	G-1.3 - [The second is MARL0 as a front-end in-game persona: the legendary creator figure associated with the origin and mythology of all Sidebars.]</div>
+<div class="cb-line">	G-1.4 - [Both entities are part of the Order in the Court intellectual property.]</div>
+<div class="cb-line">	G-1.5 - [This Exhibit addresses MARL0 exclusively in its backend, functional capacity.]</div></details>
+<details>
+    <summary>G-2 - MARL0 System Role (Backend Context)</summary>
+<div class="cb-line">	G-2.1 - [MARL0 operates as a backend AI-assisted system that supports Order in the Court by performing tasks that benefit from language processing, synthesis, or verification.]</div>
+<div class="cb-line">	G-2.2 - [MARL0 functions under explicit task boundaries defined by Sidebar and other authorized backend systems.]</div>
+  </details>
+<details><summary>G-3 - Invocation Model & Cost Discipline</summary>
+<div class="cb-line">	G-3.1 - [MARL0 is invoked selectively and only when deterministic systems are insufficient to complete a defined task.]</div>
+<div class="cb-line">	G-3.2 - [MARL0 invocations are task-specific and executed as discrete operations.]</div>
+<div class="cb-line">	G-3.3 - [MARL0 outputs are designed to be cacheable using Sidebar-controlled systems to reduce redundant computation and cost.]</div>
+<div class="cb-line">	G-3.4 - [System design prioritizes minimizing AI-dependent operations to control cost, latency, and systemic complexity.]</div>
+  </details>
+<details><summary>G-4 - Legal Text Retrieval, Verification & Ingestion</summary>
+<div class="cb-line">	G-4.1 - [When directed, MARL0 retrieves real-world legal text from authoritative, official sources.]</div>
+<div class="cb-line">	G-4.2 - [Retrieval tasks are scoped to verbatim statutory or code text and do not include interpretation or summarization.]</div>
+<div class="cb-line">	G-4.3 - [MARL0 verifies that retrieved legal text corresponds to the cited jurisdiction, code, and section.]</div>
+<div class="cb-line">	G-4.4 - [Verification includes source identification and retrieval metadata.]</div>
+<div class="cb-line">	G-4.5 - [Verified legal text is ingested into the IRL Law Library (IRLLL).]</div>
+<div class="cb-line">	G-4.6 - [MARL0 ensures integrity, jurisdictional accuracy, and correct association of ingested material.]</div>
+<div class="cb-line">	G-4.7 - [Approved material is synchronized from IRLLL into the In-Game Law Library (IGLL).]</div>
+<div class="cb-line">	G-4.8 - [After synchronization, future gameplay queries are satisfied directly from IGLL without additional MARL0 involvement.]</div>
+  </details>
+<details><summary>G-5 - Case Initialization & Structuring</summary>
+<div class="cb-line">	G-5.1 - [MARL0 creates all case profiles used by Order in the Court.]</div>
+<div class="cb-line">	G-5.2 - [Case profiles may include jurisdictional metadata, procedural posture, referenced statutes, and core fact summaries.]</div>
+<div class="cb-line">	G-5.3 - [MARL0 organizes case information into standardized formats consumable by deterministic backend systems.]</div>
+</details>
+<details><summary>G-6 - Judicial Material Generation (Pending Review)
+</summary>
+<div class="cb-line">	G-6.1 - [MARL0 may generate structured judicial materials after case outcomes are resolved by backend judicial logic.]</div>
+<div class="cb-line">	G-6.2 -[Such materials may include written rulings, orders, or opinion drafts.]</div>
+<div class="cb-line">	G-6.3 - [Generated materials reflect applied law, procedural posture, and resolved outcomes.]</div>
+</details>
+<details><summary>G-7- NPC Role Support</summary>
+<div class="cb-line">	G-7.1 - [MARL0 may assist NPC attorneys and prosecutors through backend generation of case summaries or structured explanations of NPC decisions.]</div>
+</details>
+<details><summary>G-8 - Insight-Gated Explanation Support</summary>
+<div class="cb-line">	G-8.1 - [MARL0 creates all case profiles used by Order in the Court.]</div>
+<div class="cb-line">	G-8.2 - [Such support is gated by Insight, invoked by Sidebar, and scoped to player permissions.]</div>
+<div class="cb-line">	G-8.3 - [MARL0 outputs are sanitized and presented to players exclusively through Sidebar.]</div>
+</details>
+<details><summary>G-9 - Authority & Governance</summary>
+<div class="cb-line">	G-9.1 - [MARL0 supports legal systems but does not govern them.]</div>
+<div class="cb-line">	G-9.2 - [Judicial authority resides with courts, judges, appellate processes, and other defined legal mechanisms within the game.]</div>
+</details>
+<details><summary>G-10 - Design Alignment</summary>
+<div class="cb-line">	G-10.1 - [MARL0’s backend role emphasizes accuracy, structure, auditability, and cost control.]</div>
+<div class="cb-line">	G-10.2 - [MARL0 enhances system clarity and efficiency without altering legal outcomes.]</div>
 </details>
 
-EXHIBIT D – Gameplay Structure & Case Lifecycle
-
-EXHIBIT E – Checks, Balances & Accountability
-
-EXHIBIT F – Sidebar (Player Interface & Mediation Layer)
-
-EXHIBIT G – MARL0 (Backend Systems)
-
-EXHIBIT H – Law Systems
-
-EXHIBIT I – The Brand
-
-EXHIBIT J – NPCs & System Actors
-
-EXHIBIT K – Glossary
-
-</pre>
+  </details>
+<details>
+  <summary>EXHIBIT H – Law Systems</summary>
+H-1 - [Placeholder 1]
+H-2 - [Placeholder 2]
+</details>
+<details>
+  <summary>EXHIBIT I – The Brand</summary>
+I-1 - [Placeholder 1]
+I-2 - [Placeholder 2]
+</details>
+<details>
+  <summary>EXHIBIT J – NPCs & System Actors</summary>
+J-1 - [Placeholder 1]
+J-2 - [Placeholder 2]
+</details>
+<details>  
+  <summary>EXHIBIT K – Glossary</summary>
+K-1 - [Placeholder 1]
+K-2 - [Placeholder 2]
+</details>
+   </div>
   </div>
 </body>
 </html>
