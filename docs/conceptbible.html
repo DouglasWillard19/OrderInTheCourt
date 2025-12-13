@@ -509,26 +509,102 @@ H-3.1b - [Expansion Hooks listed in H-1 and H-2 are non-binding placeholders unt
 EXHIBIT I: GLOSSARY
 
 I-1: Core Terms
-I-1.1a - [PPP – Private Practice Path; players working in private firms or client-facing roles.]
+
+I-1.1a - [PPP – Private Practice Path; players working in private firms or client-facing legal roles.]
+
 I-1.1b - [PSP – Public Service Path; players working as prosecutors, clerks, staff attorneys, or judges.]
+
 I-1.1c - [RS – Reputation Score; a measure of professional competence, ethics, and reliability.]
+
 I-1.1d - [CS – Connection Score; a measure of relationship quality and collaboration history between two specific players.]
+
 I-1.1e - [IS – Insight Score; a measure of accumulated legal understanding and effective use of Sidebar.]
-I-1.1f - [Insight Packs – Optional learning expansions that accelerate understanding but do not alter core mechanics or outcomes.]
-I-1.1g - [Sidebar – The in-game AI assistant that provides legal translation, guidance, and research support within strict role and confidentiality limits.]
-I-1.1h - [Judicial Randomization Engine (JRE) – A backend weighted random selector used exclusively for content variation.]
-I-1.1i - [Sidebar Versioning – A future memory-pack concept where a player’s Sidebar behavior is influenced by locally stored past interactions, treated as an Expansion Hook.]
-I-1.1j - [Checks & Balances – The combined effect of RS, CS, IS, and procedural design that keeps the ecosystem self-correcting and resistant to abuse.]
-I-1.1k - [IRL Law Library (IRLLL) – A structured legal corpus proprietary to Andyland and accessed only by MARL0. It serves as an upstream reference when constructing or revising in-game doctrine.]
-I-1.1l - [In-Game Law Library (IGLL) – The studio-owned in-game legal corpus containing doctrine, precedent, and procedural rules used by all player Sidebars. IGLL evolves through in-game precedent and SCOTUS-approved updates.]
-I-1.1m - [Case Profile – A skeletal, unrendered case definition created by the system before being expanded into a playable matter.]
-I-1.1n - [Rendered Case – A fully realized, playable case generated from a Case Profile based on attorney assignment and server demand.]
-I-1.1o - [Professional Action – Any in-game act performed in a professional role (paralegal, attorney, judge, prosecutor) that can influence RS, CS, or IS.]
-I-1.1p - [Oversight Case – A structured matter that investigates alleged misconduct or systemic abuse within the legal ecosystem, often involving logs from PSP Sidebars and simulated judges.]
-I-1.1q - [Oversight Body – The in-world institution or panel responsible for handling Oversight Cases, impeachment-style investigations, and related accountability mechanisms.]
-I-1.1r - [Simulated Judge – An AI- or system-driven judicial actor used when no human judge is seated, constrained to defined matter types and fully appealable.]
-I-1.1s - [Human Judge – A player-controlled judge with full role responsibilities, subject to RS/CS-based eligibility, Oversight, and removal mechanics.]
-I-1.1t - [Non-Precedential Opinion – An opinion that does not enter IGLL as binding doctrine but may still influence Sidebar guidance, judicial reasoning, or future design decisions.]
+
+I-1.1f - [Insight Packs – Optional learning expansions that accelerate understanding and access to advanced Sidebar functionality without altering core mechanics or outcomes.]
+
+I-1.1g - [Sidebar – The player-facing in-game system that provides legal translation, guidance, contextual explanation, and task routing under defined role and confidentiality constraints.]
+
+I-1.1h - [Judicial Randomization Engine (JRE) – A backend weighted random selector used exclusively for controlled content variation and non-deterministic flavor.]
+
+I-1.1i - [Sidebar Versioning – A planned expansion concept in which a player’s Sidebar behavior may be influenced by locally stored interaction history.]
+
+I-1.1j - [Checks & Balances – The combined effect of RS, CS, IS, procedural rules, and oversight systems that maintain equilibrium and deter abuse.]
+
+I-1.1k - [IRL Law Library (IRLLL) – A structured repository of verified real-world legal texts accessed by MARL0 for ingestion and synchronization into in-game systems.]
+
+I-1.1l - [In-Game Law Library (IGLL) – The studio-owned legal corpus containing statutes, precedent, and procedural rules used during gameplay and accessed by Sidebars.]
+
+I-1.1m - [Case Profile – A lightweight, unrendered case definition containing minimal identifying and jurisdictional information, created prior to firm assignment.]
+
+I-1.1n - [Rendered Case – A fully realized, playable case generated from a Case Profile after firm intake, containing evidence, filings, and procedural materials.]
+
+I-1.1o - [Professional Action – Any in-game act performed in a professional role that may affect RS, CS, or IS.]
+
+I-1.1p - [Oversight Case – A formal proceeding examining alleged professional misconduct or systemic abuse within the legal ecosystem.]
+
+I-1.1q - [Oversight Body – The in-world institution or panel responsible for adjudicating Oversight Cases and enforcing accountability mechanisms.]
+
+I-1.1r - [Simulated Judge – A system-driven judicial actor that presides when no human judge occupies the bench and whose rulings are subject to appeal.]
+
+I-1.1s - [Human Judge – A player-controlled judge who occupies a judicial seat and exercises full judicial authority subject to eligibility, oversight, and appeal.]
+
+
+
+EXHIBIT X: MARL0 (BACKEND SYSTEMS)
+
+X-0: MARL0 — Dual Identity Clarification
+X-0.1a - [“MARL0” refers to two distinct but related IP-owned entities within Order in the Court.]
+X-0.1b - [The first is MARL0 as a backend AI interface: a functional system layer that supports gameplay through scoped, non-discretionary AI-assisted operations.]
+X-0.1c - [The second is MARL0 as a front-end in-game persona: the legendary creator figure associated with the origin and mythology of all Sidebars.]
+X-0.1d - [Both entities are part of the Order in the Court intellectual property.]
+X-0.1e - [This Exhibit addresses MARL0 exclusively in its backend, functional capacity.]
+
+X-1: MARL0 System Role (Backend Context)
+X-1.1a - [MARL0 operates as a backend AI-assisted system that supports Order in the Court by performing tasks that benefit from language processing, synthesis, or verification.]
+X-1.1b - [MARL0 functions under explicit task boundaries defined by Sidebar and other authorized backend systems.]
+
+X-2: Invocation Model & Cost Discipline
+X-2.1a - [MARL0 is invoked selectively and only when deterministic systems are insufficient to complete a defined task.]
+X-2.1b - [MARL0 invocations are task-specific and executed as discrete operations.]
+X-2.1c - [MARL0 outputs are designed to be cacheable using Sidebar-controlled systems to reduce redundant computation and cost.]
+X-2.1d - [System design prioritizes minimizing AI-dependent operations to control cost, latency, and systemic complexity.]
+
+X-3: Legal Text Retrieval, Verification & Ingestion
+X-3.1a - [When directed, MARL0 retrieves real-world legal text from authoritative, official sources.]
+X-3.1b - [Retrieval tasks are scoped to verbatim statutory or code text and do not include interpretation or summarization.]
+X-3.2a - [MARL0 verifies that retrieved legal text corresponds to the cited jurisdiction, code, and section.]
+X-3.2b - [Verification includes source identification and retrieval metadata.]
+X-3.3a - [Verified legal text is ingested into the IRL Law Library (IRLLL).]
+X-3.3b - [MARL0 ensures integrity, jurisdictional accuracy, and correct association of ingested material.]
+X-3.4a - [Approved material is synchronized from IRLLL into the In-Game Law Library (IGLL).]
+X-3.4b - [After synchronization, future gameplay queries are satisfied directly from IGLL without additional MARL0 involvement.]
+
+X-4: Case Initialization & Structuring
+X-4.1a - [MARL0 creates all case profiles used by Order in the Court.]
+X-4.1b - [Case profiles may include jurisdictional metadata, procedural posture, referenced statutes, and core fact summaries.]
+X-4.2a - [MARL0 organizes case information into standardized formats consumable by deterministic backend systems.]
+
+X-5: Judicial Material Generation (Non-Canonical, Non-Decision)
+X-5.1a - [MARL0 may generate structured judicial materials after case outcomes are resolved by backend judicial logic.]
+X-5.1b - [Such materials may include written rulings, orders, or opinion drafts.]
+X-5.2a - [Generated materials reflect applied law, procedural posture, and resolved outcomes.]
+
+X-7: NPC Role Support
+X-7.1a - [MARL0 may assist NPC attorneys and prosecutors through backend generation of case summaries or structured explanations of NPC decisions.]
+
+X-8: Insight-Gated Explanation Support
+X-8.1a - [MARL0 may provide backend support for advanced explanations, clarification of law, or contextual synthesis.]
+X-8.1b - [Such support is gated by Insight, invoked by Sidebar, and scoped to player permissions.]
+X-8.1c - [MARL0 outputs are sanitized and presented to players exclusively through Sidebar.]
+
+X-9: Authority & Governance
+X-9.1a - [MARL0 supports legal systems but does not govern them.]
+X-9.1b - [Judicial authority resides with courts, judges, appellate processes, and other defined legal mechanisms within the game.]
+
+X-10: Design Alignment
+X-10.1a - [MARL0’s backend role emphasizes accuracy, structure, auditability, and cost control.]
+X-10.1b - [MARL0 enhances system clarity and efficiency without altering legal outcomes.]
+
 </pre>
   </div>
 </body>
